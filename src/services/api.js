@@ -45,10 +45,12 @@ api.interceptors.response.use(
 // ============================================
 
 export const blogAPI = {
-  // Get all blogs
+  // Get all blogs — cache-busting param prevents stale responses
   getAll: async () => {
     try {
-      const response = await api.get('/blogs');
+      const response = await api.get('/blogs', {
+        params: { _t: Date.now() },
+      });
       return response.data;
     } catch (error) {
       console.error('Error fetching blogs:', error);
