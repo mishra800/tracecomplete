@@ -1,3 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  VITE_API_URL = "https://trace-backed-1.onrender.com/api"
+  VITE_API_TIMEOUT = "10000"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
