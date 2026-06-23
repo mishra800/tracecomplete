@@ -408,15 +408,9 @@ export default function Infrastructure() {
 </div>
 <div className="premium-card-grid">
 <div className="premium-service-card">
-<div className="premium-icon-wrapper"><img src="/assets/images/24-hours.png"/>
+<div className="premium-icon-wrapper">
+  <img src="/assets/images/certified.png" alt="certified" title="certified" />
 </div>
-<p><strong>24×7 SOC &amp; Seamless Support</strong>
-                                        Continuous monitoring, rapid incident response, and proactive tuning by
-                                        certified analysts.
-                                    </p>
-</div>
-<div className="premium-service-card">
-<div className="premium-icon-wrapper"><img src="/assets/images/certified.png"/></div>
 <p><strong>Multi‑vendor, Certified Expertise</strong>
                                         With 40+ Global OEM Partnerships, we are bringing you future-proof solutions
                                         matched to your
@@ -424,7 +418,9 @@ export default function Infrastructure() {
                                     </p>
 </div>
 <div className="premium-service-card">
-<div className="premium-icon-wrapper"><img src="/assets/images/leadership.png"/></div>
+<div className="premium-icon-wrapper">
+  <img src="/assets/images/leadership.png" alt="leadership" title="leadership" />
+</div>
 <p><strong>20 Years of Leadership</strong>
                                         Proven security and networking solutions for top institutions and data centers
                                         across South
@@ -432,7 +428,8 @@ export default function Infrastructure() {
                                     </p>
 </div>
 <div className="premium-service-card">
-<div className="premium-icon-wrapper"><img src="/assets/images/luxury.png"/>
+<div className="premium-icon-wrapper">
+  <img src="/assets/images/luxury.png" style={{width: '60px'}} alt="luxury" title="luxury" />
 </div>
 <p><strong>Customer‑First, Value‑Driven</strong>
                                         Right-sized solutions that deliver maximum protection at the lowest total cost
@@ -440,28 +437,36 @@ export default function Infrastructure() {
                                     </p>
 </div>
 <div className="premium-service-card">
-<div className="premium-icon-wrapper"><img src="/assets/images/technical-support.png"/></div>
+<div className="premium-icon-wrapper">
+  <img src="/assets/images/technical-support.png" style={{width: '55px'}} alt="technical-support" title="technical-support" />
+</div>
 <p><strong>Local Presence &amp; Rapid Support</strong>
                                         Engineers in Hyderabad, Bengaluru, Chennai, Vijayawada, and Vizag for quick
                                         onsite help.
                                     </p>
 </div>
 <div className="premium-service-card">
-<div className="premium-icon-wrapper"><img src="/assets/images/iso-certificate.png"/></div>
+<div className="premium-icon-wrapper">
+  <img src="/assets/images/iso-certificate.png" style={{width: '59px'}} alt="iso-certificate" title="iso-certificate" />
+</div>
 <p><strong>ISO 27001‑Certified</strong>
                                         Stringent change management and documentation aligned with global best
                                         practices.
                                     </p>
 </div>
 <div className="premium-service-card">
-<div className="premium-icon-wrapper"><img src="/assets/images/frame.png"/></div>
+<div className="premium-icon-wrapper">
+  <img src="/assets/images/frame.png" style={{width: '50px'}} alt="frame" title="frame" />
+</div>
 <p><strong>Proven Deployment Framework</strong>
                                         Assess → Design → Deploy → Optimize → Support. Minimizing downtime and boosting
                                         ROI.
                                     </p>
 </div>
 <div className="premium-service-card">
-<div className="premium-icon-wrapper"><img src="/assets/images/agile.png"/></div>
+<div className="premium-icon-wrapper">
+  <img src="/assets/images/agile.png" style={{width: '59px'}} alt="agile" title="agile" />
+</div>
 <p><strong>Flexible Commercial Models</strong>
                                         CapEx, OpEx, and MSSP pricing aligned with business cash-flow goals.
                                     </p>
@@ -484,7 +489,7 @@ export default function Infrastructure() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

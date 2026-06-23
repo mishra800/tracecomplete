@@ -362,7 +362,7 @@ export default function WorkWithUs() {
 <div className={`tab-content${activeJobTab === "tab1" ? " active-tab" : ""}`} id="tab1">
 <div className="job-layout">
 <div className="job-image">
-<img alt="Inside Sales" src="/assets/images/indian sale.jpg" title="inside sales" />
+<img alt="Inside Sales" src="/assets/images/indian sale-girl.png" title="inside sales" />
 </div>
 <div className="job-details">
 <h2>Inside Sales Executive</h2>

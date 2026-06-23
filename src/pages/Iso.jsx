@@ -77,7 +77,8 @@ export default function Iso() {
 <div className="services-details__need-help-bdr"></div>
 <h3 className="services-details__need-help-title">Need Help?</h3>
 <p className="services-details__need-help-number">
-<a href="tel:+917032224513" title="contact us">7032224513</a>
+<a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" title="WhatsApp support">90003 14411</a><br/>
+<small style={{ fontSize: '0.85em', opacity: 0.9 }}>(WhatsApp Support)</small>
 </p>
 </div>
 </div>
@@ -243,6 +244,125 @@ ISO 27001 certification is the world’s gold standard for information security 
 </div>
 </div>
 </div>
+      
+      {/* FAQ Section */}
+            <section className="faq-redesign">
+        <div className="container">
+          <div className="row">
+
+            {/* LEFT */}
+            <div className="col-xl-5 col-lg-5">
+              <div className="faq-redesign__left">
+                <div className="section-title__tagline-box">
+                  <div className="section-title__tagline-shape-1"></div>
+                  <span className="section-title__tagline">FAQS</span>
+                  <div className="section-title__tagline-shape-2"></div>
+                </div>
+                <h3 className="faq-redesign__heading">Frequently Asked <span>Questions</span></h3>
+                <p className="faq-redesign__subtext">Explore answers to common questions about our ISO 27001 Compliance &amp; Risk services.</p>
+
+                <div className="faq-redesign__support-box">
+                  <div className="faq-redesign__support-row">
+                    <span className="icon-customer-service-headset faq-redesign__support-icon"></span>
+                    <div>
+                      <span className="faq-redesign__support-label">Get Support</span>
+                      <p className="faq-redesign__support-number"><a href="tel:+917032224513">7032224513</a></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="faq-redesign__btns">
+                  <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="faq-redesign__btn faq-redesign__btn--whatsapp">
+                    <i className="fab fa-whatsapp"></i>
+                    <span>WhatsApp Support</span>
+                    <span className="faq-redesign__btn-arrow">&#8599;</span>
+                  </a>
+                  <a href="/contact-us" className="faq-redesign__btn faq-redesign__btn--touch">
+                    <i className="fas fa-phone-alt"></i>
+                    <span>Get In Touch</span>
+                    <span className="faq-redesign__btn-arrow">&#8599;</span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+            {/* RIGHT */}
+            <div className="col-xl-7 col-lg-7">
+              <div className="faq-redesign__right">
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-tick-inside-circle"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">How long does ISO 27001 certification take?</h4>
+                    <p className="faq-redesign__item-text">Typically 3-6 months depending on your organisation's size and current security maturity. Our structured roadmap keeps every milestone on track.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-strategy"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">Do we need to be re-certified every year?</h4>
+                    <p className="faq-redesign__item-text">ISO 27001 certification is valid for 3 years with annual surveillance audits. We support you through every audit cycle to ensure continuous compliance.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-transparency"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">What is the difference between ISO 27001:2013 and 2022?</h4>
+                    <p className="faq-redesign__item-text">The 2022 revision restructured Annex A controls from 114 to 93, adding 11 new controls focused on cloud security, threat intelligence, and data masking.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-target"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">Will ISO 27001 help us win more business?</h4>
+                    <p className="faq-redesign__item-text">Yes. Many enterprise RFPs and government tenders require ISO 27001 as a prequalification check, and certified organisations report up to 30% faster sales cycles.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-idea"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">Ready to start your certification journey?</h4>
+                    <p className="faq-redesign__item-text">Book a free 30-minute gap assessment call. Walk away with a clear implementation roadmap and cost estimate - no obligations.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                {/* Trust bar */}
+                <div className="faq-redesign__trust-bar">
+                  <div className="faq-redesign__trust-item">
+                    <i className="fas fa-shield-alt faq-redesign__trust-icon"></i>
+                    <span>CISSP-Certified Lead Auditors</span>
+                  </div>
+                  <div className="faq-redesign__trust-item">
+                    <i className="fas fa-clock faq-redesign__trust-icon"></i>
+                    <span>Structured Implementation Roadmap</span>
+                  </div>
+                  <div className="faq-redesign__trust-item">
+                    <i className="fas fa-lock faq-redesign__trust-icon"></i>
+                    <span>End-to-End ISMS Build-Out</span>
+                  </div>
+                  <div className="faq-redesign__trust-item">
+                    <i className="fas fa-award faq-redesign__trust-icon"></i>
+                    <span>Stage 1 &amp; 2 Audit Support</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Career CTA Section */}
       <section className="career-cta-section">
         <div className="career-cta-container">
@@ -256,7 +376,7 @@ ISO 27001 certification is the world’s gold standard for information security 
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

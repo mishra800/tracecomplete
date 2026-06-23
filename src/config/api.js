@@ -1,5 +1,16 @@
-// API Configuration
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+// API Configuration — ensuring absolute URL in production and preventing duplicate /api suffixes
+const getBaseUrl = () => {
+  const url = import.meta.env.PROD 
+    ? (import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL !== '/api' 
+        ? import.meta.env.VITE_API_URL 
+        : 'https://trace-backed-1.onrender.com/api')
+    : (import.meta.env.VITE_API_URL || '/api');
+  
+  // Strip trailing /api if it exists because the endpoints below already prepend /api/
+  return url.endsWith('/api') ? url.substring(0, url.length - 4) : url;
+};
+
+const API_BASE_URL = getBaseUrl();
 
 export const API_ENDPOINTS = {
   // Contact endpoints

@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Peoplelink.css';
@@ -72,8 +74,17 @@ const peoplelinkUseCases = [
 
 export default function Peoplelink() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerPeoplelink');
   return (
     <div className="peoplelink-page pl2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── PeopleLink Premium Hero ── */}
       <section className="pl2-hero">
@@ -87,15 +98,15 @@ export default function Peoplelink() {
           <div className="pl2-left" data-aos="fade-right" data-aos-duration="900">
 
             <h1 className="pl2-headline">
-              PeopleLink Unified<br />
-              Communication &amp;<br />
-              <span className="pl2-headline-accent">Collaboration Solutions</span>
+              Trusted PeopleLink Audio<br />
+              &amp; Video Conferencing<br />
+              <span className="pl2-headline-accent">Partner</span>
             </h1>
             <div className="pl2-headline-rule"></div>
 
             <p className="pl2-desc">
               Enterprise video conferencing, smart meeting rooms, unified collaboration,
-              and hybrid workplace solutions — delivered by{' '}
+              and hybrid workplace solutions - delivered by{' '}
               <a href="/contact-us" className="pl2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -159,7 +170,7 @@ export default function Peoplelink() {
 
           </div>
 
-          {/* RIGHT — Product Showcase */}
+          {/* RIGHT - Product Showcase */}
           <div className="pl2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
 
             <div className="pl2-product-glow" aria-hidden="true"></div>
@@ -201,7 +212,7 @@ export default function Peoplelink() {
       
       {/* Use Cases Slider */}
 
-      {/* Career CTA — above Use Cases */}
+      {/* Career CTA - above Use Cases */}
       <section className="career-cta-section partner-cta-upgraded" data-aos="fade-up" data-aos-duration="900">
         <div className="career-cta-container">
           <div className="partner-cta-eyebrow"><i className="fas fa-people-carry"></i><span>FREE WORKFORCE CONSULT</span></div>
@@ -210,10 +221,10 @@ export default function Peoplelink() {
           <div className="partner-cta-points">
             <div className="partner-cta-point"><i className="fas fa-search"></i><span>Top three workforce compliance gaps in your setup</span></div>
             <div className="partner-cta-point"><i className="fas fa-bolt"></i><span>Quick wins to automate attendance and payroll processes</span></div>
-            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
+            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate - no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

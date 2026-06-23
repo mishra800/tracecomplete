@@ -552,10 +552,24 @@
 
 .portfolio-two__title-2 a {
     color: var(--FuzionIQ-white);
+    transition: color 0.3s ease;
 }
 
 .portfolio-two__title-2 a:hover {
-    color: var(--FuzionIQ-base);
+    color: #ff6b00 !important; /* Orange color with important */
+}
+
+/* Additional specific selectors for service titles */
+.portfolio-two__box .portfolio-two__title-2 a:hover,
+.portfolio-two .portfolio-two__title-2 a:hover,
+section.portfolio-two .portfolio-two__title-2 a:hover {
+    color: #ff6b00 !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Fallback using different orange shades for troubleshooting */
+.portfolio-two__title-box .portfolio-two__title-2 a:hover {
+    color: #e55722 !important; /* Slightly different orange */
 }
 
 .portfolio-two__text {

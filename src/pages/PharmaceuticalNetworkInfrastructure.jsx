@@ -201,7 +201,7 @@ export default function PharmaceuticalNetworkInfrastructure() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

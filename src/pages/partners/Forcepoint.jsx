@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Forcepoint.css';
@@ -15,8 +17,17 @@ const forcepointUseCases = [
 
 export default function Forcepoint() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerForcepoint');
   return (
     <div className="forcepoint-page fp2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── HERO ── */}
       <section className="fp2-hero">
@@ -27,13 +38,13 @@ export default function Forcepoint() {
 
           <div className="fp2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="fp2-headline">
-              Forcepoint Data<br />
-              Security &amp;<br />
-              <span className="fp2-headline-accent">Zero Trust Solutions</span>
+              Premier Forcepoint Data<br />
+              Security &amp; Zero Trust<br />
+              <span className="fp2-headline-accent">Solutions Partner</span>
             </h1>
             <div className="fp2-headline-rule"></div>
             <p className="fp2-desc">
-              Comprehensive data loss prevention, Zero Trust security, and cloud protection &mdash; delivered by{' '}
+              Comprehensive data loss prevention, Zero Trust security, and cloud protection - delivered by{' '}
               <a href="/contact-us" className="fp2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -119,7 +130,7 @@ export default function Forcepoint() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

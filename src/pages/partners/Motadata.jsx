@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Motadata.css';
@@ -15,8 +17,17 @@ const motadataUseCases = [
 
 export default function Motadata() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerMotadata');
   return (
     <div className="motadata-page mdt-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- HERO -- */}
       <section className="mdt2-hero">
@@ -26,13 +37,13 @@ export default function Motadata() {
 
           <div className="mdt2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="mdt2-headline">
-              Motadata IT Monitoring<br />
-              &amp; Observability for<br />
-              <span className="mdt2-headline-accent">Intelligent Enterprises</span>
+              Comprehensive Monitoring<br />
+              &amp; Log Management<br />
+              <span className="mdt2-headline-accent">Solutions</span>
             </h1>
             <div className="mdt2-headline-rule"></div>
             <p className="mdt2-desc">
-              Unified IT monitoring, AI-powered observability, and service management for enterprise infrastructure � delivered by{' '}
+              Unified IT monitoring, AI-powered observability, and service management for enterprise infrastructure - delivered by{' '}
               <a href="/contact-us" className="mdt2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -104,7 +115,7 @@ export default function Motadata() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

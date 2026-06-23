@@ -56,7 +56,7 @@ export default function Visibility() {
                     <div className="services-details__need-help-content">
                       <div className="services-details__need-help-bdr"></div>
                       <h3 className="services-details__need-help-title">Need Help?</h3>
-                      <p className="services-details__need-help-number"><a href="tel:+917032224513">7032224513</a></p>
+                      <p className="services-details__need-help-number"><a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer">90003 14411</a><br/><small style={{ fontSize: '0.85em', opacity: 0.9 }}>(WhatsApp Support)</small></p>
                     </div>
                   </div>
                 </div>
@@ -194,10 +194,6 @@ export default function Visibility() {
               </div>
               <div className="premium-card-grid">
                 <div className="premium-service-card">
-                  <div className="premium-icon-wrapper"><img src="/assets/images/24-hours.png" /></div>
-                  <p><strong>24×7 SOC &amp; Seamless Support</strong> Continuous monitoring, rapid incident response, and proactive tuning by certified analysts.</p>
-                </div>
-                <div className="premium-service-card">
                   <div className="premium-icon-wrapper"><img src="/assets/images/certified.png" /></div>
                   <p><strong>Multi‑vendor, Certified Expertise</strong> With 40+ Global OEM Partnerships, we are bringing you future-proof solutions matched to your exact needs.</p>
                 </div>
@@ -243,7 +239,7 @@ export default function Visibility() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

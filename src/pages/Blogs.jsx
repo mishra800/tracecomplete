@@ -83,6 +83,9 @@ export default function Blogs() {
         title={seoData.title}
         description={seoData.description}
         keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
       />
 
             <section className="page-header">

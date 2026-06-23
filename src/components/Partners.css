@@ -93,3 +93,25 @@
     max-width: 70px;
   }
 }
+
+/* Specific styling for OWL Labs logo - reduce image size, keep box same, match border radius */
+.logo-track img.logo-owl-labs {
+  max-width: 160px !important;
+  margin: 10px auto !important;
+  padding: 15px !important; /* Reduced padding to prevent text cutoff */
+  object-fit: contain !important;
+  box-sizing: border-box !important;
+  border-radius: 25px !important; /* Match the border radius of other logos */
+  background: white !important; /* Keep white background for the logo */
+}
+
+/* Halofort logo - match styling with other logos */
+.logo-track img.logo-halofort {
+  max-width: 160px !important;
+  margin: 10px auto !important;
+  padding: 15px !important; /* Add padding to reduce the logo size slightly */
+  object-fit: contain !important;
+  box-sizing: border-box !important;
+  border-radius: 25px !important; /* Match the border radius of other logos */
+  background: white !important; /* Keep white background for the logo */
+}

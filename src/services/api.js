@@ -1,7 +1,15 @@
 import axios from 'axios';
 
-// Base URL for API - uses environment variable with fallback
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://trace-backed-1.onrender.com/api';
+// Base URL for API - uses environment variable with fallback, ensuring absolute URL in production
+const getBaseUrl = () => {
+  return import.meta.env.PROD 
+    ? (import.meta.env.VITE_API_URL && import.meta.env.VITE_API_URL !== '/api' 
+        ? import.meta.env.VITE_API_URL 
+        : 'https://trace-backed-1.onrender.com/api')
+    : (import.meta.env.VITE_API_URL || '/api');
+};
+
+const API_BASE_URL = getBaseUrl();
 const API_TIMEOUT = import.meta.env.VITE_API_TIMEOUT || 10000;
 
 // Create axios instance with default config

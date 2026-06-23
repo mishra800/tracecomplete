@@ -1,5 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Lenovo.css';
@@ -63,8 +65,17 @@ const lenovoUseCases = [
 
 export default function Lenovo() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerLenovo');
   return (
     <div className="hp-page lenovo-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
           {/* ── Lenovo Premium Hero ── */}
           <section className="lnv-hero">
@@ -81,9 +92,9 @@ export default function Lenovo() {
 
                 {/* Headline */}
                 <h1 className="lnv-headline">
-                  Lenovo Laptops, Desktops<br />
-                  &amp; Servers for<br />
-                  <span className="lnv-headline-accent">Modern Enterprises</span>
+                  Leading Lenovo Infrastructure<br />
+                  &amp; Enterprise Solutions<br />
+                  <span className="lnv-headline-accent">Partner</span>
                 </h1>
                 <div className="lnv-headline-rule"></div>
 
@@ -220,7 +231,7 @@ export default function Lenovo() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

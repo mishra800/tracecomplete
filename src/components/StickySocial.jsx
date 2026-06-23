@@ -23,7 +23,7 @@ const StickySocial = () => {
           <span className="fab fa-youtube"></span>
         </a>
         <a 
-          href="https://www.linkedin.com/company/tracenetworksolutions/" 
+          href="https://www.linkedin.com/company/tracenetwork/posts/?feedView=all" 
           target="_blank" 
           rel="noopener noreferrer"
           className="sticky-social-link linkedin"

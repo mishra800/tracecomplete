@@ -1,5 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import './Qualys.css';
 
@@ -70,8 +72,17 @@ const qualysUseCases = [
 ];
 
 export default function Qualys() {
+  const seoData = getSEOData('partnerQualys');
   return (
     <div className="qualys-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
           {/* Hero */}
           <section className="qualys-hero">
@@ -83,9 +94,9 @@ export default function Qualys() {
                   One of the Leading Qualys Partners in SAARC
                 </div>
                 <h1 className="qualys-hero-title">
-                  Qualys
-                  <span className="qualys-gradient-text"> Cloud Security &amp; Vulnerability Management</span>
-                  <br />Solutions Provider
+                  Leading Qualys Cybersecurity<br />
+                  &amp; Compliance<br />
+                  <span className="qualys-gradient-text">Partner</span>
                 </h1>
                 <p className="qualys-hero-desc">
                   Continuous vulnerability management, compliance monitoring, patch automation, and real-time threat visibility across hybrid IT environments - delivered by Trace Network &amp; Engineering.
@@ -298,7 +309,7 @@ export default function Qualys() {
                 <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline &amp; cost estimate — no obligations</span></div>
               </div>
               <div className="partner-cta-actions">
-                <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+                <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
                 <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
               </div>
             </div>

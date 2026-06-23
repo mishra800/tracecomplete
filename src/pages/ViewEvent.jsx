@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import './ViewEvent.css';
 
-// Derive base URL for /uploads image paths.
-// Production: VITE_API_URL is a full https URL — strip /api suffix.
-// Local dev:  VITE_API_URL is /api (Vite proxy) — use '' so /uploads stays relative.
 const _apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 const API_BASE_URL = _apiUrl.startsWith('http') ? _apiUrl.replace(/\/api$/, '') : '';
+
+function resolveImage(url) {
+    if (!url) return null;
+    return url.startsWith('http') ? url : `${API_BASE_URL}${url}`;
+}
 
 function stripHtml(html) {
     if (!html) return '';
@@ -15,127 +18,283 @@ function stripHtml(html) {
     return tmp.textContent || tmp.innerText || '';
 }
 
+function formatDate(dateStr) {
+    if (!dateStr) return null;
+    const d = new Date(dateStr);
+    if (isNaN(d)) return null;
+    return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+// ── Sidebar skeleton ────────────────────────────────────────────────────────
+function SidebarSkeleton() {
+    return (
+        <>
+            {[1, 2, 3].map(n => (
+                <div className="sidebar-skeleton-card" key={n}>
+                    <div className="sidebar-skeleton__thumb" />
+                    <div className="sidebar-skeleton__lines">
+                        <div className="sidebar-skeleton__line" />
+                        <div className="sidebar-skeleton__line" />
+                        <div className="sidebar-skeleton__line" />
+                    </div>
+                </div>
+            ))}
+        </>
+    );
+}
+
+// ── Single sidebar event card ───────────────────────────────────────────────
+function SidebarEventCard({ event }) {
+    const imgUrl      = resolveImage(event.image);
+    const formattedDate = formatDate(event.event_date);
+    const desc        = stripHtml(event.description);
+
+    return (
+        <Link to={`/view-event/${event.id}`} className="sidebar-event-card">
+            <div className="sidebar-event-card__thumb">
+                {imgUrl ? (
+                    <img
+                        src={imgUrl}
+                        alt={event.title}
+                        onError={(e) => {
+                            e.target.closest('.sidebar-event-card__thumb').innerHTML =
+                                '<div class="sidebar-event-card__no-img"><i class="fas fa-calendar-alt"></i></div>';
+                        }}
+                    />
+                ) : (
+                    <div className="sidebar-event-card__no-img">
+                        <i className="fas fa-calendar-alt" />
+                    </div>
+                )}
+            </div>
+
+            <div className="sidebar-event-card__info">
+                {formattedDate && (
+                    <div className="sidebar-event-card__date">
+                        <i className="fas fa-calendar-alt" />
+                        {formattedDate}
+                    </div>
+                )}
+                <p className="sidebar-event-card__title">{event.title}</p>
+                <span className="sidebar-event-card__cta">
+                    View Details <i className="fas fa-arrow-right" />
+                </span>
+            </div>
+        </Link>
+    );
+}
+
+// ── Main Component ──────────────────────────────────────────────────────────
 export default function ViewEvent() {
     const { id } = useParams();
-    const [event, setEvent] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [event,      setEvent]      = useState(null);
+    const [loading,    setLoading]    = useState(true);
+    const [prevEvents, setPrevEvents] = useState([]);
+    const [prevLoading,setPrevLoading]= useState(true);
 
+    // Fetch current event
     useEffect(() => {
+        setLoading(true);
         fetch(`${API_BASE_URL}/api/events/${id}`)
             .then(res => res.json())
-            .then(data => {
-                setEvent(data);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error(err);
-                setLoading(false);
-            });
+            .then(data => { setEvent(data); setLoading(false); })
+            .catch(err => { console.error(err); setLoading(false); });
     }, [id]);
 
-    if (loading) return <div style={{ padding: '100px', textAlign: 'center', color: '#fff' }}>Loading event...</div>;
-    if (!event || event.message) return <div style={{ padding: '100px', textAlign: 'center', color: '#fff' }}>Event not found.</div>;
+    // Fetch other events for sidebar
+    useEffect(() => {
+        setPrevLoading(true);
+        fetch(`${API_BASE_URL}/api/events`)
+            .then(res => res.json())
+            .then(data => {
+                const all = Array.isArray(data) ? data : [];
+                const others = all
+                    .filter(e => String(e.id) !== String(id))
+                    .sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0))
+                    .slice(0, 5); // show up to 5 in sidebar
+                setPrevEvents(others);
+                setPrevLoading(false);
+            })
+            .catch(err => { console.error(err); setPrevLoading(false); });
+    }, [id]);
 
-    const plainDesc = stripHtml(event.description);
+    // ── Loading state ───────────────────────────────────────────────────────
+    if (loading) {
+        return (
+            <div style={{ padding: '120px 20px', textAlign: 'center', color: '#fff', background: '#0d1117', minHeight: '60vh' }}>
+                <div style={{
+                    width: '48px', height: '48px',
+                    border: '4px solid rgba(255,255,255,0.1)',
+                    borderTop: '4px solid #ff7a00',
+                    borderRadius: '50%',
+                    animation: 'spin 0.9s linear infinite',
+                    margin: '0 auto 20px'
+                }} />
+                <p style={{ color: '#aaa', fontSize: '16px' }}>Loading event…</p>
+                <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+            </div>
+        );
+    }
+
+    // ── Not found ───────────────────────────────────────────────────────────
+    if (!event || event.message) {
+        return (
+            <div style={{ padding: '120px 20px', textAlign: 'center', color: '#fff', background: '#0d1117', minHeight: '60vh' }}>
+                <i className="fas fa-calendar-times" style={{ fontSize: '52px', color: '#444', marginBottom: '20px', display: 'block' }} />
+                <p style={{ fontSize: '18px', color: '#aaa' }}>Event not found.</p>
+                <Link to="/events" style={{ color: '#ff7a00', marginTop: '16px', display: 'inline-block' }}>← Back to Events</Link>
+            </div>
+        );
+    }
+
+    const plainDesc  = stripHtml(event.description);
+    const heroImgUrl = resolveImage(event.image);
+    const eventDate  = formatDate(event.event_date);
 
     return (
         <>
             <SEO
-                title={`${event.title} | Trace Network & Engineering Pvt Ltd`}
-                description={plainDesc ? plainDesc.substring(0, 160).replace(/\s+/g, ' ').trim() : "Stay updated with the latest events, webinars, and workshops on cybersecurity and IT technologies from Trace Network & Engineering Pvt Ltd."}
-                keywords="IT event, cybersecurity event, webinar, workshop, trace network event"
+                title={event.meta_title || `${event.title} | Trace Network & Engineering Pvt Ltd`}
+                description={event.meta_description || (plainDesc ? plainDesc.substring(0, 160).replace(/\s+/g, ' ').trim() : 'Stay updated with the latest events, webinars, and workshops on cybersecurity and IT technologies from Trace Network & Engineering Pvt Ltd.')}
+                keywords={event.meta_keywords || "IT event, cybersecurity event, webinar, workshop, trace network event"}
                 ogTitle={event.title}
-                ogDescription={plainDesc ? plainDesc.substring(0, 160).replace(/\s+/g, ' ').trim() : "Stay updated with the latest events from Trace Network & Engineering."}
-                ogImage={event.image ? (event.image.startsWith('http') ? event.image : `${API_BASE_URL}${event.image}`) : "/assets/images/logoo.png"}
+                ogDescription={plainDesc ? plainDesc.substring(0, 160).replace(/\s+/g, ' ').trim() : 'Stay updated with the latest events from Trace Network & Engineering.'}
+                ogImage={heroImgUrl || '/assets/images/logoo.png'}
             />
+
+            {/* Breadcrumb header */}
             <section className="page-header">
-                <div className="page-header__bg" style={{ backgroundImage: "url(/assets/images/backgrounds/page-header-bg.jpg)" }}></div>
+                <div className="page-header__bg" style={{ backgroundImage: 'url(/assets/images/backgrounds/page-header-bg.jpg)' }} />
                 <div className="container">
                     <div className="page-header__inner">
                         <h2>{event.title}</h2>
                         <div className="thm-breadcrumb__box">
                             <ul className="thm-breadcrumb list-unstyled">
-                                <li><Link to="/"><i className="fas fa-home"></i>Home</Link></li>
-                                <li><span className="icon-right-arrow-1"></span></li>
+                                <li><Link to="/"><i className="fas fa-home" />Home</Link></li>
+                                <li><span className="icon-right-arrow-1" /></li>
                                 <li><Link to="/events">Events</Link></li>
-                                <li><span className="icon-right-arrow-1"></span></li>
+                                <li><span className="icon-right-arrow-1" /></li>
                                 <li>{event.title}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
-            
-            <section style={{ padding: '60px 0' }}>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-8 offset-lg-2">
-                            {event.image && (
-                                <img
-                                    src={event.image.startsWith('http') ? event.image : `${API_BASE_URL}${event.image}`}
-                                    alt={event.title}
-                                    style={{ width: '100%', borderRadius: '12px', marginBottom: '30px', maxHeight: '480px', objectFit: 'cover', display: 'block' }}
-                                    onError={(e) => { e.target.style.display = 'none'; }}
-                                />
-                            )}
-                            <h2 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '28px', fontWeight: '700' }}>{event.title}</h2>
-                            <p style={{ color: 'rgba(255,255,255,0.7)', fontWeight: 'bold', marginBottom: '20px' }}>
-                                Event Date: {new Date(event.event_date).toLocaleDateString()}
-                            </p>
-                            <div style={{ lineHeight: '1.8', color: '#ffffff', whiteSpace: 'pre-wrap' }}>
-                                {event.description}
-                            </div>
 
-                            {/* Event Gallery Section */}
-                            {event.gallery_images && event.gallery_images.length > 0 && (
-                                <div style={{ marginTop: '50px', marginBottom: '30px' }}>
-                                    <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '22px', fontWeight: '600' }}>Event Gallery</h3>
-                                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '16px' }}>
-                                        {event.gallery_images.map((imgUrl, index) => {
-                                            const resolvedUrl = imgUrl.startsWith('http') ? imgUrl : `${API_BASE_URL}${imgUrl}`;
-                                            return (
-                                                <div 
-                                                    key={index} 
-                                                    style={{ 
-                                                        borderRadius: '8px', 
-                                                        overflow: 'hidden', 
-                                                        height: '160px', 
-                                                        border: '1px solid rgba(255,255,255,0.1)', 
-                                                        cursor: 'pointer', 
-                                                        transition: 'transform 0.2s, box-shadow 0.2s' 
-                                                    }}
-                                                    onClick={() => window.open(resolvedUrl, '_blank')}
-                                                    onMouseEnter={(e) => { 
-                                                        e.currentTarget.style.transform = 'scale(1.04)';
-                                                        e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
-                                                    }}
-                                                    onMouseLeave={(e) => { 
-                                                        e.currentTarget.style.transform = 'scale(1)';
-                                                        e.currentTarget.style.boxShadow = 'none';
-                                                    }}
-                                                >
-                                                    <img 
-                                                        src={resolvedUrl} 
-                                                        alt={`Gallery photo ${index + 1}`} 
-                                                        style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                                                    />
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
+            {/* ── Two-column body ── */}
+            <div className="view-event-wrapper">
+                <div className="view-event-layout">
+
+                    {/* ── LEFT: event content ── */}
+                    <main className="view-event-main">
+
+                        {heroImgUrl && (
+                            <img
+                                src={heroImgUrl}
+                                alt={event.title}
+                                className="view-event-hero-img"
+                                onError={(e) => { e.target.style.display = 'none'; }}
+                            />
+                        )}
+
+                        <h1 className="view-event-title">{event.title}</h1>
+
+                        <div className="view-event-meta">
+                            {eventDate && (
+                                <span className="view-event-meta-item">
+                                    <i className="fas fa-calendar-alt" />
+                                    {eventDate}
+                                </span>
+                            )}
+                            {event.location && (
+                                <a
+                                    href={event.location_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="view-event-meta-item view-event-meta-item--link"
+                                    title="Open in Google Maps"
+                                >
+                                    <i className="fas fa-map-marker-alt" />
+                                    {event.location}
+                                    <i className="fas fa-external-link-alt view-event-meta-item__ext" />
+                                </a>
+                            )}
+                        </div>
+
+                        <div className="view-event-divider" />
+
+                        {event.description && (
+                            <div
+                                className="view-event-body"
+                                dangerouslySetInnerHTML={{ __html: event.description }}
+                            />
+                        )}
+
+                        {/* Gallery */}
+                        {event.gallery_images && event.gallery_images.length > 0 && (
+                            <div className="view-event-gallery">
+                                <h3 className="view-event-section-heading">
+                                    <i className="fas fa-images" />
+                                    Event Gallery
+                                </h3>
+                                <div className="view-event-gallery-grid">
+                                    {event.gallery_images.map((imgUrl, index) => {
+                                        const url = resolveImage(imgUrl);
+                                        return (
+                                            <div
+                                                key={index}
+                                                className="view-event-gallery-item"
+                                                onClick={() => window.open(url, '_blank')}
+                                                title="Click to view full size"
+                                            >
+                                                <img src={url} alt={`Gallery photo ${index + 1}`} />
+                                            </div>
+                                        );
+                                    })}
                                 </div>
-                            )}
+                            </div>
+                        )}
 
-                            <div style={{ marginTop: '40px' }}>
-                                <Link to="/events" style={{ background: '#d44a00', color: '#fff', padding: '12px 24px', borderRadius: '6px', textDecoration: 'none', fontWeight: '600' }}>
-                                    ← Back to Events
-                                </Link>
+                        <Link to="/events" className="view-event-back-btn">
+                            <i className="fas fa-arrow-left" />
+                            Back to Events
+                        </Link>
+                    </main>
+
+                    {/* ── RIGHT: previous events sidebar ── */}
+                    <aside className="view-event-sidebar">
+
+                        <div className="sidebar-heading">
+                            <div>
+                                <div className="sidebar-heading__tag">More Events</div>
+                                <h3>Previous <span>Events</span></h3>
                             </div>
                         </div>
-                    </div>
+
+                        {prevLoading ? (
+                            <SidebarSkeleton />
+                        ) : prevEvents.length > 0 ? (
+                            <>
+                                {prevEvents.map(e => (
+                                    <SidebarEventCard key={e.id} event={e} />
+                                ))}
+                                <div className="sidebar-view-all">
+                                    <Link to="/events">
+                                        <i className="fas fa-th-large" />
+                                        View All Events
+                                    </Link>
+                                </div>
+                            </>
+                        ) : (
+                            <div className="sidebar-empty">
+                                <i className="fas fa-calendar-times" style={{ fontSize: '28px', marginBottom: '8px', display: 'block', opacity: 0.3 }} />
+                                No other events yet.
+                            </div>
+                        )}
+                    </aside>
+
                 </div>
-            </section>
+            </div>
         </>
     );
 }
-

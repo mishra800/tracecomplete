@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Dell.css';
@@ -15,8 +17,17 @@ const dellUseCases = [
 
 export default function Dell() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerDell');
   return (
     <div className="dell-page dell-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- DELL Premium Hero -- */}
       <section className="dell2-hero">
@@ -44,13 +55,13 @@ export default function Dell() {
           {/* LEFT */}
           <div className="dell2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="dell2-headline">
-              Dell Laptops, Desktops<br />
-              &amp; Servers for<br />
-              <span className="dell2-headline-accent">Modern Enterprises</span>
+              Premier Dell Infrastructure<br />
+              &amp; Enterprise Computing<br />
+              <span className="dell2-headline-accent">Partner</span>
             </h1>
             <div className="dell2-headline-rule"></div>
             <p className="dell2-desc">
-              Secure, high-performance, and scalable Dell IT infrastructure designed for enterprises, SMBs, healthcare, education, banking, and government � delivered by{' '}
+              Secure, high-performance, and scalable Dell IT infrastructure designed for enterprises, SMBs, healthcare, education, banking, and government - delivered by{' '}
               <a href="/contact-us" className="dell2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -59,7 +70,7 @@ export default function Dell() {
                 <div className="dell2-feat-icon"><i className="fas fa-shield-alt"></i></div>
                 <div className="dell2-feat-body">
                   <strong>Secure &amp; Reliable</strong>
-                  <span>Dell Trusted Devices � built-in hardware-level protection.</span>
+                  <span>Dell Trusted Devices - built-in hardware-level protection.</span>
                 </div>
               </div>
               <div className="dell2-feat">
@@ -159,7 +170,7 @@ export default function Dell() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

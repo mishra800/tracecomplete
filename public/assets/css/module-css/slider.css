@@ -1242,3 +1242,45 @@
 /*--------------------------------------------------------------
 # End
 --------------------------------------------------------------*/
+
+/* ===== Under Attack Button ===== */
+.btn-under-attack {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #e8000e;
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    box-shadow: 0 0 0 0 rgba(232, 0, 14, 0.7);
+    animation: pulse-red 2s infinite;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.btn-under-attack__icon {
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-under-attack:hover {
+    background-color: #bf0000;
+    color: #fff;
+    transform: scale(1.04);
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(232, 0, 14, 0.6);
+}
+
+/* Pulsing glow animation to grab attention */
+@keyframes pulse-red {
+    0%   { box-shadow: 0 0 0 0 rgba(232, 0, 14, 0.7); }
+    70%  { box-shadow: 0 0 0 12px rgba(232, 0, 14, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(232, 0, 14, 0); }
+}

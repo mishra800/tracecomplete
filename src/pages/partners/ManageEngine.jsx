@@ -1,5 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './ManageEngine.css';
@@ -13,8 +15,17 @@ const manageEngineUseCases = [
 
 export default function ManageEngine() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerManageengine');
   return (
     <div className="me-page me-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- Hero -- */}
       <section className="me2-hero">
@@ -26,9 +37,9 @@ export default function ManageEngine() {
           {/* LEFT */}
           <div className="me2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="me2-headline">
-              Zoho ManageEngine<br />
-              IT Management &amp;<br />
-              <span className="me2-headline-accent">Security Solutions</span>
+              One of the Leading Zoho<br />
+              ManageEngine Partners<br />
+              <span className="me2-headline-accent">in INDIA</span>
             </h1>
             <div className="me2-headline-rule"></div>
             <p className="me2-desc">
@@ -120,6 +131,27 @@ export default function ManageEngine() {
         </div>
       </section>
 
+      {/* Certifications Section */}
+      <section className="me-cert-section">
+        <div className="container">
+          <div className="me-cert-header">
+            <h2><i className="fas fa-award me-cert-header-icon"></i> Our ManageEngine Certification</h2>
+            <p>Certified ManageEngine professionals delivering proven IT management expertise</p>
+          </div>
+          <div className="me-cert-body">
+            <div className="me-cert-card-wrap">
+              <img
+                src="/assets/manage-engine.png"
+                alt="ManageEngine Certified Partner"
+                title="ManageEngine Certified Partner — Trace Network"
+              />
+              <div className="me-cert-card-glow"></div>
+              <span className="me-cert-label">ManageEngine Certified Partner</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Career CTA — above Use Cases */}
       <section className="career-cta-section partner-cta-upgraded" data-aos="fade-up" data-aos-duration="900">
         <div className="career-cta-container">
@@ -132,7 +164,7 @@ export default function ManageEngine() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

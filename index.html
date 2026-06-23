@@ -117,7 +117,7 @@ network security, cloud, and managed IT services since 2005." />
                 </li>
                 <li>
                     <i class="fas fa-phone"></i>
-                    <a href="tel:+917032224513" title="phone num">7032224513</a>
+                    <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" title="WhatsApp support">90003 14411 (WhatsApp)</a>
                 </li>
             </ul><!-- /.mobile-nav__contact -->
             <div class="mobile-nav__top">
@@ -128,7 +128,7 @@ network security, cloud, and managed IT services since 2005." />
                     <a href="https://www.youtube.com/@Tracenetworksolutions" target="_blank" class="youtube" title="youtube">
                         <span class="fab fa-youtube"></span>
                     </a>
-                    <a href="https://www.linkedin.com/company/tracenetworksolutions/" target="_blank" class="linkedin" title="linkdln">
+                    <a href="https://www.linkedin.com/company/tracenetwork/posts/?feedView=all" target="_blank" class="linkedin" title="linkdln">
                         <span class="fab fa-linkedin-in"></span>
                     </a>
                 </div>
@@ -185,36 +185,17 @@ network security, cloud, and managed IT services since 2005." />
     <!-- template js -->
     <script src="/assets/js/script.js"></script>
 
-    <!-- Re-initialize Swiper after React renders -->
+    <!-- Re-initialize Swiper when React navigates back to the home page -->
     <script>
-        // Wait for React to render, then call the thmSwiperInit function from script.js
+        // Expose a global reinit helper that Home.jsx can call directly.
+        // The MutationObserver approach was unreliable on SPA re-navigation,
+        // so we rely on the useEffect in Home.jsx calling window.Swiper directly.
         window.addEventListener('load', function() {
-            // Use MutationObserver to detect when React adds the slider
-            const observer = new MutationObserver(function(mutations) {
-                const swiperElement = document.querySelector('.thm-swiper__slider');
-                if (swiperElement && typeof thmSwiperInit === 'function') {
-                    console.log('🎯 Slider element detected, initializing Swiper...');
-                    observer.disconnect(); // Stop observing
-                    setTimeout(function() {
-                        thmSwiperInit();
-                        console.log('✅ thmSwiperInit() called');
-                    }, 100);
-                }
-            });
-            
-            // Start observing
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-            
-            // Fallback: try after 1 second
-            setTimeout(function() {
-                if (document.querySelector('.thm-swiper__slider') && typeof thmSwiperInit === 'function') {
-                    console.log('🔄 Fallback: Calling thmSwiperInit()');
-                    thmSwiperInit();
-                }
-            }, 1000);
+            // Only handle the very first page load — React's useEffect handles
+            // all subsequent SPA navigations.
+            if (typeof thmSwiperInit === 'function') {
+                thmSwiperInit();
+            }
         });
     </script>
 
@@ -349,219 +330,7 @@ network security, cloud, and managed IT services since 2005." />
         </script>
         
 
-<!-- VAPT POPUP FINAL (CLEAN + ENTERPRISE) -->
-<div id="vaptPopup" style="
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
-backdrop-filter:blur(8px);
--webkit-backdrop-filter:blur(8px);
-z-index:999999;
-justify-content:center;
-align-items:center;
-opacity:0;
-transition:opacity 0.4s ease;
-">
 
-  <div id="popupBox" style="
-  background:linear-gradient(135deg,#081a2f,#0f2c4d);
-  color:#fff;
-  padding:42px;
-  border-radius:22px;
-  width:460px;
-  text-align:center;
-  position:relative;
-  box-shadow:0 10px 60px rgba(0,150,255,0.25);
-  transform:scale(0.7) translateY(30px);
-  transition:all 0.45s ease;
-  ">
-
-    <!-- CLOSE BUTTON -->
-    <span onclick="closePopup()" 
-    style="
-    position:absolute;
-    top:14px;
-    left:14px;
-    cursor:pointer;
-    font-size:22px;
-    background:rgba(255,255,255,0.1);
-    padding:6px 12px;
-    border-radius:50%;
-    transition:0.3s;
-    ">
-    &#10006;
-    </span>
-
-    <!-- MAIN HEADING -->
-    <h2 style="
-    margin-bottom:14px;
-    font-size:32px;
-    letter-spacing:1px;
-    font-weight:bold;
-    display:inline-block;
-    padding:10px 22px;
-    border-radius:14px;
-    background:rgba(255,122,0,0.1);
-    color:#ff7a00;
-    border:1px solid rgba(255,122,0,0.5);
-    box-shadow:0 0 20px rgba(255,122,0,0.6);
-    animation:vaptGlow 2s infinite;
-    ">
-    Free VAPT
-    </h2>
-
-    <p style="
-    margin:10px 0 18px;
-    color:#ccc;
-    font-size:16px;
-    ">
-    Secure More, Risk Less
-    </p>
-
-    <!-- BADGE -->
-    <div style="
-    display:inline-block;
-    padding:10px 24px;
-    margin:15px 0;
-    font-size:17px;
-    font-weight:bold;
-    color:#00eaff;
-    background:rgba(0, 212, 255, 0.1);
-    border:1px solid rgba(0, 212, 255, 0.4);
-    border-radius:30px;
-    box-shadow:0 0 25px rgba(0,212,255,0.5);
-    animation:glowPulse 2s infinite;
-    ">
-    Free for 5 IPs
-    </div>
-
-    <p style="
-    color:#bbb;
-    font-size:15px;
-    line-height:1.7;
-    margin-top:12px;
-    ">
-      Stay one step ahead of cyber threats with our expert security testing.
-    </p>
-
-    <!-- BUTTON -->
-    <button onclick="goToContact()" style="
-    background:#ff7a00;
-    color:white;
-    padding:14px 30px;
-    border:none;
-    border-radius:35px;
-    margin-top:22px;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:bold;
-    transition:all 0.3s ease;
-    box-shadow:0 5px 20px rgba(255,122,0,0.4);
-    ">
-    Avail Offer
-    </button>
-
-  </div>
-</div>
-
-<style>
-@keyframes vaptGlow {
-  0% { box-shadow: 0 0 10px rgba(255,122,0,0.3); transform: scale(1); }
-  50% { box-shadow: 0 0 30px rgba(255,122,0,0.9); transform: scale(1.05); }
-  100% { box-shadow: 0 0 10px rgba(255,122,0,0.3); transform: scale(1); }
-}
-
-@keyframes glowPulse {
-  0% { box-shadow: 0 0 10px rgba(0,212,255,0.2); }
-  50% { box-shadow: 0 0 35px rgba(0,212,255,0.8); }
-  100% { box-shadow: 0 0 10px rgba(0,212,255,0.2); }
-}
-
-#popupBox button:hover {
-  background:#ff5500;
-  transform:scale(1.1);
-}
-
-#popupBox span:hover {
-  background:#ff7a00;
-}
-
-@keyframes floatBox {
-  0% { transform:translateY(0px); }
-  50% { transform:translateY(-6px); }
-  100% { transform:translateY(0px); }
-}
-
-#popupBox {
-  animation: floatBox 4s ease-in-out infinite;
-}
-</style>
-
-<script>
-// SHOW AFTER 10 SECONDS
-setTimeout(function() {
-  // Never show on admin or login pages
-  var path = window.location.pathname.toLowerCase();
-  if (path.indexOf('admin') !== -1 || path.indexOf('login') !== -1) {
-    return;
-  }
-
-  var popup = document.getElementById("vaptPopup");
-  var box = document.getElementById("popupBox");
-
-  if (popup && box) {
-    popup.style.display = "flex";
-
-    setTimeout(function(){
-      popup.style.opacity = "1";
-      box.style.transform = "scale(1) translateY(0)";
-    }, 50);
-
-    // CLOSE AFTER 60 SECONDS
-    setTimeout(function() {
-      closePopup();
-    }, 60000);
-  }
-}, 10000);
-
-// Periodically check if we are on an admin or login page and auto-hide
-setInterval(function() {
-  var path = window.location.pathname.toLowerCase();
-  if (path.indexOf('admin') !== -1 || path.indexOf('login') !== -1) {
-    var rawPopup = document.getElementById("vaptPopup");
-    if (rawPopup && rawPopup.style.display !== "none") {
-      rawPopup.style.display = "none";
-    }
-  }
-}, 500);
-
-// CLOSE FUNCTION
-function closePopup(){
-  var popup = document.getElementById("vaptPopup");
-  var box = document.getElementById("popupBox");
-
-  if (popup && box) {
-    popup.style.opacity = "0";
-    box.style.transform = "scale(0.7) translateY(30px)";
-
-    setTimeout(function(){
-      popup.style.display = "none";
-    }, 400);
-  }
-}
-
-// REDIRECT FUNCTION
-function goToContact(){
-  closePopup();
-  setTimeout(function(){
-    window.location.href = "contact-us.html";
-  }, 400);
-}
-</script>
 
 
 

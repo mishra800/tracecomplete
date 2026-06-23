@@ -118,15 +118,6 @@
   cursor: pointer; 
 }
 
-/* Remove orange background from Partners menu item - make it look like other menu items */
-.custom-partners-menu > a {
-  background: transparent !important;
-  color: inherit !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
 /* Open Source TOOL flyout is handled entirely via React state (inline styles) */
 .open-source-tool-menu { position: relative !important; }
 .main-menu-two__main-menu-box { position: relative; }
@@ -417,15 +408,15 @@
     animation: glowPulse 1.5s infinite alternate;
 }
 
-/* Override for Partners menu item - keep it simple like other menu items */
+/* Partners active state - identical pill to Home/other active nav items */
 .main-menu__list > li.custom-partners-menu.activity > a {
-    color: #ff7a00 !important;
-    background: transparent !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    transform: none !important;
-    animation: none !important;
+    color: #fff !important;
+    background: linear-gradient(90deg, #d44a00, #ff7f32) !important;
+    padding: 8px 16px !important;
+    border-radius: 30px !important;
+    box-shadow: 0 0 15px rgba(212, 74, 0, 0.7) !important;
+    transform: scale(1.05) !important;
+    animation: glowPulse 1.5s infinite alternate !important;
 }
 
 /* Shimmer effect */
@@ -533,4 +524,18 @@
 
 .btn-get-started:hover .btn-arrow::before {
   content: "➔";
+}
+
+/* ===== Navbar button row ===== */
+.main-menu-two__btn-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Hide Under Attack on mobile */
+@media (max-width: 991px) {
+  .main-menu-two__btn-box a:first-child {
+    display: none;
+  }
 }

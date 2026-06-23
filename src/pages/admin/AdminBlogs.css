@@ -53,14 +53,34 @@
 .page-title {
   font-size: 2rem;
   font-weight: 800;
-  color: #1a202c;
+  color: #1a202c !important;
   margin: 0;
 }
 
 .page-subtitle {
   font-size: 0.95rem;
-  color: #718096;
+  color: #718096 !important;
   margin: 0;
+}
+
+/* Force dark text inside the white header — overrides global body color */
+.admin-blogs-header *,
+.admin-blogs-header h1,
+.admin-blogs-header h2,
+.admin-blogs-header h3,
+.admin-blogs-header p {
+  color: #1a202c !important;
+}
+
+.admin-blogs-header .page-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a202c !important;
+}
+
+.admin-blogs-header .page-subtitle {
+  font-size: 0.95rem;
+  color: #4a5568 !important;
 }
 
 .header-actions {

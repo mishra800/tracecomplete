@@ -82,7 +82,8 @@ export default function SoftwareLicensingProductivitySolutions() {
                       Need Help?
                     </h3>
 <p className="services-details__need-help-number">
-<a href="tel:+917032224513" title="contact us">7032224513</a>
+<a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" title="WhatsApp support">90003 14411</a><br/>
+<small style={{ fontSize: '0.85em', opacity: 0.9 }}>(WhatsApp Support)</small>
 </p>
 </div>
 </div>
@@ -384,114 +385,125 @@ export default function SoftwareLicensingProductivitySolutions() {
 </section>
 
 
-<section className="faq-two">
-<div className="faq-two__shape-1">
-<img alt="" src="/assets/images/shapes/faq-two-shape-1.png" />
-</div>
-<div className="faq-two__shape-2">
-<img alt="" src="/assets/images/shapes/faq-two-shape-2.png" />
-</div>
-<div className="container">
-<div className="row">
-<div className="col-xl-5">
-<div className="faq-two__left">
-<div className="section-title text-left">
-<div className="section-title__tagline-box">
-<div className="section-title__tagline-shape-1"></div>
-<span className="section-title__tagline">FAQS</span>
-<div className="section-title__tagline-shape-2"></div>
-</div>
-<h2 className="section-title__title">
-                  Frequently Asked <span>Questions</span>
-</h2>
-</div>
-<p className="faq-two__text">
-                Explore answers to common questions <br />about our Software Licensing Productivity Solutions
-              </p>
-<div className="faq-two__bdr"></div>
-<div className="faq-two__contact">
-<div className="icon">
-<span className="icon-customer-service-headset"></span>
-</div>
-<div className="content">
-<span>Get Support</span>
-<p><a href="tel:+917032224513" title="contact us">7032224513</a></p>
-</div>
-</div>
-<div className="faq-two__btn-box">
-<a className="thm-btn" href="/contact-us">Get in Touch<span className="icon-right-arrow"></span></a>
-</div>
-</div>
-</div>
-<div className="col-xl-7">
-<div className="faq-two__right">
-<div className="accrodion-grp" data-grp-name="faq-one-accrodion">
-<div className="accrodion">
-<div className="accrodion-title">
-<h4> How are renewals handled?</h4>
-</div>
-<div className="accrodion-content">
-<div className="inner">
-<p className="accrodion-content__text-1">
-                       We monitor all renewal dates using our cloud license management services. You’ll receive a 60-day reminder, plus detailed software cost optimization suggestions to ensure you renew only what’s required.
-                      </p>
-</div>
-</div>
-</div>
-<div className="accrodion active">
-<div className="accrodion-title">
-<h4>What if we outgrow our current plan mid-term?</h4>
-</div>
-<div className="accrodion-content">
-<div className="inner">
-<p className="accrodion-content__text-1">
-                         Our software licensing solutions are fully scalable. Whether it’s Google Workspace, Office 365 licensing, or Adobe enterprise licenses, we can true-up seats or upgrade tiers instantly with prorated billing through our software deployment &amp; migration process.
-                      </p>
-</div>
-</div>
-</div>
-<div className="accrodion">
-<div className="accrodion-title">
-<h4>Is local billing in INR available?</h4>
-</div>
-<div className="accrodion-content">
-<div className="inner">
-<p className="accrodion-content__text-1">
-                        Yes. All enterprise licensing support is billed locally in Indian Rupees (INR) with full GST compliance, making us a preferred Google Workspace reseller and Office 365 license provider for Indian businesses.
-                      </p>
-</div>
-</div>
-</div>
-<div className="accrodion">
-<div className="accrodion-title">
-<h4>What support is provided post-deployment?</h4>
-</div>
-<div className="accrodion-content">
-<div className="inner">
-<p className="accrodion-content__text-1">
-                        Our 24x7 IT support service desk ensures uninterrupted operations. From troubleshooting to renewals, our engineers handle every aspect of your licensed platforms.
-                      </p>
-</div>
-</div>
-</div>
-<div className="accrodion">
-<div className="accrodion-title">
-<h4>Ready to Empower Your Workforce?</h4>
-</div>
-<div className="accrodion-content">
-<div className="inner">
-<p className="accrodion-content__text-1">
-                        Book a 30-minute discovery call today and receive a tailored software licensing &amp; deployment proposal designed to boost productivity and efficiency within hours.
 
-                      </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+      {/* FAQ Section */}
+            <section className="faq-redesign">
+        <div className="container">
+          <div className="row">
+
+            {/* LEFT */}
+            <div className="col-xl-5 col-lg-5">
+              <div className="faq-redesign__left">
+                <div className="section-title__tagline-box">
+                  <div className="section-title__tagline-shape-1"></div>
+                  <span className="section-title__tagline">FAQS</span>
+                  <div className="section-title__tagline-shape-2"></div>
+                </div>
+                <h3 className="faq-redesign__heading">Frequently Asked <span>Questions</span></h3>
+                <p className="faq-redesign__subtext">Explore answers to common questions about our Software Licensing &amp; Productivity Solutions.</p>
+
+                <div className="faq-redesign__support-box">
+                  <div className="faq-redesign__support-row">
+                    <span className="icon-customer-service-headset faq-redesign__support-icon"></span>
+                    <div>
+                      <span className="faq-redesign__support-label">WhatsApp Support</span>
+                      <p className="faq-redesign__support-number"><a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer">90003 14411</a></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="faq-redesign__btns">
+                  <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="faq-redesign__btn faq-redesign__btn--whatsapp">
+                    <i className="fab fa-whatsapp"></i>
+                    <span>WhatsApp Support</span>
+                    <span className="faq-redesign__btn-arrow">&#8599;</span>
+                  </a>
+                  <a href="/contact-us" className="faq-redesign__btn faq-redesign__btn--touch">
+                    <i className="fas fa-phone-alt"></i>
+                    <span>Get In Touch</span>
+                    <span className="faq-redesign__btn-arrow">&#8599;</span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+            {/* RIGHT */}
+            <div className="col-xl-7 col-lg-7">
+              <div className="faq-redesign__right">
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-tick-inside-circle"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">How are renewals handled?</h4>
+                    <p className="faq-redesign__item-text">We monitor all renewal dates and send a 60-day reminder with cost optimisation suggestions so you only renew what's required.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-strategy"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">What if we outgrow our current plan mid-term?</h4>
+                    <p className="faq-redesign__item-text">Our licensing solutions are fully scalable. We can true-up seats or upgrade tiers instantly with prorated billing across Google Workspace, Office 365, and Adobe.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-transparency"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">Is local billing in INR available?</h4>
+                    <p className="faq-redesign__item-text">Yes. All enterprise licensing is billed locally in Indian Rupees with full GST compliance.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-target"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">What support is provided post-deployment?</h4>
+                    <p className="faq-redesign__item-text">Our 24x7 support desk handles troubleshooting, renewals, and every aspect of your licensed platforms from day one.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                <div className="faq-redesign__item">
+                  <div className="faq-redesign__item-icon"><span className="icon-idea"></span></div>
+                  <div className="faq-redesign__item-body">
+                    <h4 className="faq-redesign__item-title">Ready to empower your workforce?</h4>
+                    <p className="faq-redesign__item-text">Book a 30-minute discovery call and receive a tailored licensing proposal designed to boost productivity within hours.</p>
+                  </div>
+                  <span className="faq-redesign__chevron">&#8964;</span>
+                </div>
+
+                {/* Trust bar */}
+                <div className="faq-redesign__trust-bar">
+                  <div className="faq-redesign__trust-item">
+                    <i className="fas fa-shield-alt faq-redesign__trust-icon"></i>
+                    <span>Authorised Reseller Relationships</span>
+                  </div>
+                  <div className="faq-redesign__trust-item">
+                    <i className="fas fa-clock faq-redesign__trust-icon"></i>
+                    <span>Quick Deployment &amp; Onboarding</span>
+                  </div>
+                  <div className="faq-redesign__trust-item">
+                    <i className="fas fa-lock faq-redesign__trust-icon"></i>
+                    <span>GST-Compliant INR Billing</span>
+                  </div>
+                  <div className="faq-redesign__trust-item">
+                    <i className="fas fa-award faq-redesign__trust-icon"></i>
+                    <span>24x7 Local Support Desk</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Career CTA Section */}
       <section className="career-cta-section">
         <div className="career-cta-container">
@@ -505,7 +517,7 @@ export default function SoftwareLicensingProductivitySolutions() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>
@@ -514,7 +526,6 @@ export default function SoftwareLicensingProductivitySolutions() {
       </section>
 
 
-</section>
 
 
 

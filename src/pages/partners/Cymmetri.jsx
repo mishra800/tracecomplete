@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Cymmetri.css';
@@ -15,8 +17,17 @@ const cymmetriUseCases = [
 
 export default function Cymmetri() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerCymmetri');
   return (
     <div className="cymmetri-page cym2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── HERO ── */}
       <section className="cym2-hero">
@@ -27,13 +38,13 @@ export default function Cymmetri() {
 
           <div className="cym2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="cym2-headline">
-              Cymmetri Identity &amp;<br />
-              Access Management<br />
-              <span className="cym2-headline-accent">Solutions Provider</span>
+              One of the Leading<br />
+              Cymmetri<br />
+              <span className="cym2-headline-accent">Partners</span>
             </h1>
             <div className="cym2-headline-rule"></div>
             <p className="cym2-desc">
-              Complete IAM, IGA, Zero Trust, SSO, and MFA solutions for enterprise identity security &mdash; delivered by{' '}
+              Complete IAM, IGA, Zero Trust, SSO, and MFA solutions for enterprise identity security - delivered by{' '}
               <a href="/contact-us" className="cym2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -132,7 +143,7 @@ export default function Cymmetri() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

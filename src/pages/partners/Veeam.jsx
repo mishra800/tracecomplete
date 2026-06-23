@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Veeam.css';
@@ -15,8 +17,17 @@ const veeamUseCases = [
 
 export default function Veeam() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerVeeam');
   return (
     <div className="veeam-page veeam-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- HERO -- */}
       <section className="veeam2-hero">
@@ -26,13 +37,13 @@ export default function Veeam() {
 
           <div className="veeam2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="veeam2-headline">
-              Veeam Backup &amp;<br />
-              Data Protection<br />
-              <span className="veeam2-headline-accent">for Modern Enterprises</span>
+              Top Veeam Backup<br />
+              &amp; Data Protection<br />
+              <span className="veeam2-headline-accent">Solution Provider</span>
             </h1>
             <div className="veeam2-headline-rule"></div>
             <p className="veeam2-desc">
-              Secure, back up, and restore business-critical data across virtual, physical, and cloud environments &mdash; delivered by{' '}
+              Secure, back up, and restore business-critical data across virtual, physical, and cloud environments - delivered by{' '}
               <a href="/contact-us" className="veeam2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -144,7 +155,7 @@ export default function Veeam() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

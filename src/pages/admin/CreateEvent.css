@@ -53,13 +53,13 @@
 .page-title {
   font-size: 2rem;
   font-weight: 800;
-  color: #1a202c;
+  color: #1a202c !important;
   margin: 0;
 }
 
 .page-subtitle {
   font-size: 0.95rem;
-  color: #718096;
+  color: #718096 !important;
   margin: 0;
 }
 

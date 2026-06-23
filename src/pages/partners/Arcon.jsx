@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Arcon.css';
@@ -15,8 +17,17 @@ const arconUseCases = [
 
 export default function Arcon() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerArcon');
   return (
     <div className="arcon-page arcon-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── Hero ── */}
       <section className="arcon2-hero">
@@ -35,7 +46,7 @@ export default function Arcon() {
             <div className="arcon2-headline-rule"></div>
             <p className="arcon2-desc">
               Enterprise PAM, identity security, privileged session management, and zero-trust access
-              governance — delivered by{' '}
+              governance - delivered by{' '}
               <a href="/contact-us" className="arcon2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
             <div className="arcon2-feature-row">
@@ -92,7 +103,7 @@ export default function Arcon() {
             </div>
           </div>
 
-          {/* RIGHT — Product Showcase */}
+          {/* RIGHT - Product Showcase */}
           <div className="arcon2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
             <div className="arcon2-product-glow" aria-hidden="true"></div>
             <div className="arcon2-showcase">
@@ -127,7 +138,7 @@ export default function Arcon() {
       
       {/* Use Cases Slider */}
 
-      {/* Career CTA — above Use Cases */}
+      {/* Career CTA - above Use Cases */}
       <section className="career-cta-section partner-cta-upgraded" data-aos="fade-up" data-aos-duration="900">
         <div className="career-cta-container">
           <div className="partner-cta-eyebrow"><i className="fas fa-key"></i><span>FREE PAM CONSULT</span></div>
@@ -136,10 +147,10 @@ export default function Arcon() {
           <div className="partner-cta-points">
             <div className="partner-cta-point"><i className="fas fa-search"></i><span>Top three privileged access risks in your environment</span></div>
             <div className="partner-cta-point"><i className="fas fa-bolt"></i><span>Quick wins to improve access control without disruption</span></div>
-            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
+            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate - no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>
@@ -218,7 +229,7 @@ export default function Arcon() {
         </div>
       </section>
 
-      {/* Special Offer — FREE POC (Lenovo-style particle section) */}
+      {/* Special Offer - FREE POC (Lenovo-style particle section) */}
       <section className="arcon2-poc-section" data-aos="fade-up" data-aos-duration="900">
         {/* Animated particle background */}
         <div className="arcon2-poc-particles" aria-hidden="true">
@@ -260,7 +271,7 @@ export default function Arcon() {
             </div>
           </div>
 
-          {/* RIGHT — 2×3 icon grid */}
+          {/* RIGHT - 2×3 icon grid */}
           <div className="arcon2-poc-right">
             <div className="arcon2-poc-grid-row">
               <div className="arcon2-poc-feat-card">

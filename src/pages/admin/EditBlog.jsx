@@ -32,6 +32,12 @@ function RichEditor({ id, placeholder, minHeight = 140, onChange, initialValue =
         onChange(editorRef.current?.innerHTML || '');
     };
 
+    const handleHeading = (tag) => {
+        editorRef.current?.focus();
+        document.execCommand('formatBlock', false, tag);
+        onChange(editorRef.current?.innerHTML || '');
+    };
+
     const handleLink = () => {
         const sel = window.getSelection();
         const selectedText = sel?.toString() || '';
@@ -60,9 +66,22 @@ function RichEditor({ id, placeholder, minHeight = 140, onChange, initialValue =
         }
     };
 
+    const handleClear = () => {
+        if (editorRef.current) {
+            editorRef.current.innerHTML = '';
+            editorRef.current.focus();
+            onChange('');
+        }
+    };
+
     return (
         <div className="rich-editor">
             <div className="rich-toolbar">
+                {/* Heading buttons */}
+                <button type="button" className="rich-btn rich-btn--h1" title="Heading 1" onMouseDown={(e) => { e.preventDefault(); handleHeading('h1'); }}>H1</button>
+                <button type="button" className="rich-btn rich-btn--h2" title="Heading 2" onMouseDown={(e) => { e.preventDefault(); handleHeading('h2'); }}>H2</button>
+                <button type="button" className="rich-btn rich-btn--h3" title="Heading 3" onMouseDown={(e) => { e.preventDefault(); handleHeading('h3'); }}>H3</button>
+                <div className="rich-divider" />
                 <button type="button" className="rich-btn rich-btn--bold"   title="Bold (Ctrl+B)"      onMouseDown={(e) => { e.preventDefault(); exec('bold'); }}><b>B</b></button>
                 <button type="button" className="rich-btn rich-btn--italic" title="Italic (Ctrl+I)"    onMouseDown={(e) => { e.preventDefault(); exec('italic'); }}><i>I</i></button>
                 <button type="button" className="rich-btn rich-btn--under"  title="Underline (Ctrl+U)" onMouseDown={(e) => { e.preventDefault(); exec('underline'); }}><u>U</u></button>
@@ -74,7 +93,7 @@ function RichEditor({ id, placeholder, minHeight = 140, onChange, initialValue =
                 <button type="button" className="rich-btn"                  title="Bullet list"        onMouseDown={(e) => { e.preventDefault(); exec('insertUnorderedList'); }}>• Bullet</button>
                 <button type="button" className="rich-btn"                  title="Numbered list"      onMouseDown={(e) => { e.preventDefault(); exec('insertOrderedList'); }}>1. Number</button>
                 <div className="rich-divider" />
-                <button type="button" className="rich-btn rich-btn--clear"  title="Clear formatting"   onMouseDown={(e) => { e.preventDefault(); exec('removeFormat'); }}>✕ Clear</button>
+                <button type="button" className="rich-btn rich-btn--clear"  title="Clear content"      onMouseDown={(e) => { e.preventDefault(); handleClear(); }}>✕ Clear</button>
             </div>
             <div
                 id={id}
@@ -90,11 +109,24 @@ function RichEditor({ id, placeholder, minHeight = 140, onChange, initialValue =
     );
 }
 
+/* ─── Slug Generation Utility ─────────────────────────────────────────────── */
+function generateSlug(title) {
+    return title
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/[\s_-]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+}
+
 /* ─── EditBlog Page ───────────────────────────────────────────────────────── */
 export default function EditBlog() {
     const { id } = useParams();
     const [loading, setLoading]           = useState(true);
     const [title, setTitle]               = useState('');
+    const [slug, setSlug]                 = useState('');
+    const [customSlug, setCustomSlug]     = useState(false);
+    const [slugPreview, setSlugPreview]   = useState('');
     const [author, setAuthor]             = useState('');
     const [mainContent, setMainContent]   = useState('');
     const [sectionContent, setSectionContent] = useState('');
@@ -105,10 +137,29 @@ export default function EditBlog() {
     const [existingGallery, setExistingGallery] = useState([]);
     const [newGalleryImages, setNewGalleryImages] = useState([]);
     const [newGalleryPreviews, setNewGalleryPreviews] = useState([]);
+    const [metaTitle, setMetaTitle]       = useState('');
+    const [metaDescription, setMetaDescription] = useState('');
+    const [metaKeywords, setMetaKeywords] = useState('');
     const [submitting, setSubmitting]     = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => { fetchBlog(); }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Re-generate slug from title only when NOT in custom mode and slug hasn't been loaded yet
+    useEffect(() => {
+        if (!customSlug && title && !slug) {
+            const generated = generateSlug(title);
+            setSlug(generated);
+            setSlugPreview(generated);
+        }
+    }, [title, customSlug, slug]);
+
+    const handleSlugChange = (e) => {
+        const newSlug = generateSlug(e.target.value);
+        setSlug(newSlug);
+        setSlugPreview(newSlug);
+        setCustomSlug(true);
+    };
 
     const fetchBlog = async () => {
         try {
@@ -120,6 +171,14 @@ export default function EditBlog() {
             setHeroImageUrl(blog.image1 || '');
             setHeroImageLink(blog.hero_image_link || '');
             setExistingGallery(blog.gallery_images || []);
+            setMetaTitle(blog.meta_title || '');
+            setMetaDescription(blog.meta_description || '');
+            setMetaKeywords(blog.meta_keywords || '');
+            // Load saved slug (or derive from title if none stored yet)
+            const savedSlug = blog.slug || generateSlug(blog.title || '');
+            setSlug(savedSlug);
+            setSlugPreview(savedSlug);
+            setCustomSlug(true); // treat loaded slug as fixed — don't auto-overwrite
         } catch (error) {
             console.error('Error fetching blog:', error);
             alert('Failed to load blog');
@@ -166,6 +225,7 @@ export default function EditBlog() {
 
             const formData = new FormData();
             formData.append('title', title);
+            formData.append('slug', slug);
             formData.append('content', combinedContent);
             if (author) formData.append('author', author);
             if (heroImage) {
@@ -181,6 +241,11 @@ export default function EditBlog() {
                     formData.append('gallery', file);
                 });
             }
+
+            // Meta SEO fields
+            if (metaTitle) formData.append('meta_title', metaTitle);
+            if (metaDescription) formData.append('meta_description', metaDescription);
+            if (metaKeywords) formData.append('meta_keywords', metaKeywords);
 
             await blogAPI.update(id, formData);
             navigate('/admin/blogs');
@@ -221,6 +286,36 @@ export default function EditBlog() {
                             <input type="text" id="title" className="blog-form__input"
                                 placeholder="Enter your blog title"
                                 value={title} onChange={(e) => setTitle(e.target.value)} required />
+                        </div>
+
+                        {/* URL Slug Preview & Edit */}
+                        <div className="blog-form__group">
+                            <label className="blog-form__label">URL Slug</label>
+                            <div className="slug-preview-container">
+                                <div className="slug-preview">
+                                    <span className="slug-base">yoursite.com/blog/</span>
+                                    <span className="slug-path">{slugPreview || 'your-blog-title'}</span>
+                                </div>
+                                <button type="button"
+                                    className="slug-edit-btn"
+                                    onClick={() => setCustomSlug(!customSlug)}
+                                >
+                                    <i className="fas fa-edit"></i>
+                                    {customSlug ? 'Auto-generate' : 'Edit'}
+                                </button>
+                            </div>
+                            {customSlug && (
+                                <div className="slug-edit-container">
+                                    <input
+                                        type="text"
+                                        className="blog-form__input slug-input"
+                                        value={slug}
+                                        onChange={handleSlugChange}
+                                        placeholder="custom-url-slug"
+                                    />
+                                    <p className="blog-form__hint">URL-friendly characters only (letters, numbers, hyphens)</p>
+                                </div>
+                            )}
                         </div>
 
                         <div className="blog-form__group">
@@ -311,6 +406,48 @@ export default function EditBlog() {
                                 onChange={setBottomContent}
                                 initialValue={bottomContent}
                             />
+                        </div>
+
+                        {/* SEO / Meta */}
+                        <div className="blog-form__group blog-form__group--meta">
+                            <div className="blog-form__meta-heading">
+                                <span className="blog-form__meta-icon">🔍</span>
+                                <span>SEO &amp; Meta Tags</span>
+                            </div>
+                            <label className="blog-form__label" htmlFor="meta_title">Meta Title</label>
+                            <input
+                                type="text"
+                                id="meta_title"
+                                className="blog-form__input"
+                                placeholder="SEO title shown in browser tab and search results (50–60 chars recommended)"
+                                value={metaTitle}
+                                onChange={(e) => setMetaTitle(e.target.value)}
+                                maxLength={120}
+                            />
+                            <p className="blog-form__hint">{metaTitle.length}/120 characters</p>
+
+                            <label className="blog-form__label" htmlFor="meta_description" style={{ marginTop: '10px' }}>Meta Description</label>
+                            <textarea
+                                id="meta_description"
+                                className="blog-form__input blog-form__textarea"
+                                placeholder="Brief page summary for search engines (150–160 chars recommended)"
+                                value={metaDescription}
+                                onChange={(e) => setMetaDescription(e.target.value)}
+                                maxLength={320}
+                                rows={3}
+                            />
+                            <p className="blog-form__hint">{metaDescription.length}/320 characters</p>
+
+                            <label className="blog-form__label" htmlFor="meta_keywords" style={{ marginTop: '10px' }}>Meta Keywords</label>
+                            <input
+                                type="text"
+                                id="meta_keywords"
+                                className="blog-form__input"
+                                placeholder="keyword1, keyword2, keyword3 (comma-separated)"
+                                value={metaKeywords}
+                                onChange={(e) => setMetaKeywords(e.target.value)}
+                            />
+                            <p className="blog-form__hint">Separate keywords with commas</p>
                         </div>
 
                         <div className="blog-form__actions">
@@ -428,6 +565,9 @@ const STYLES = `
 .rich-btn--hl     { background: #fef9c3; border-color: #fde047; }
 .rich-btn--hl:hover { background: #fef08a; }
 .rich-btn--clear  { color: #6b7280; font-size: 12px; }
+.rich-btn--h1     { font-weight: 800; font-size: 13px; min-width: 30px; text-align: center; color: #1a1a2e; }
+.rich-btn--h2     { font-weight: 700; font-size: 12px; min-width: 30px; text-align: center; color: #333; }
+.rich-btn--h3     { font-weight: 600; font-size: 12px; min-width: 30px; text-align: center; color: #555; }
 
 .rich-divider { width: 1px; height: 20px; background: #e5e7eb; margin: 0 2px; }
 
@@ -456,6 +596,33 @@ const STYLES = `
 .rich-area ol                   { padding-left: 22px; margin: 6px 0; list-style: decimal; }
 .rich-area li                   { margin-bottom: 3px; }
 .rich-area mark                 { background: #fef08a; padding: 0 2px; border-radius: 2px; }
+.rich-area h1                   { font-size: 1.8em; font-weight: 800; margin: 10px 0 6px; color: #000000 !important; }
+.rich-area h2                   { font-size: 1.4em; font-weight: 700; margin: 8px 0 5px; color: #000000 !important; }
+.rich-area h3                   { font-size: 1.15em; font-weight: 600; margin: 6px 0 4px; color: #000000 !important; }
+
+/* ── Meta Section ── */
+.blog-form__group--meta {
+    background: #f8faff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 18px 16px 14px;
+}
+.blog-form__meta-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e3a5f;
+    margin-bottom: 14px;
+}
+.blog-form__meta-icon { font-size: 18px; }
+.blog-form__textarea {
+    resize: vertical;
+    min-height: 70px;
+    line-height: 1.5;
+    font-family: inherit;
+}
 
 .blog-form__actions {
     display: flex;
@@ -534,5 +701,70 @@ const STYLES = `
     font-size: 11px;
     line-height: 1;
     padding: 0;
+}
+
+/* ── Slug Preview Styles ── */
+.slug-preview-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.slug-preview {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #475569;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.slug-base {
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+.slug-path {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.slug-edit-btn {
+    background: #f59e0b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+.slug-edit-btn:hover {
+    background: #d97706;
+}
+
+.slug-edit-btn i {
+    font-size: 11px;
+}
+
+.slug-edit-container {
+    margin-top: 8px;
+}
+
+.slug-input {
+    font-family: 'Courier New', monospace !important;
+    font-size: 13px !important;
 }
 `;

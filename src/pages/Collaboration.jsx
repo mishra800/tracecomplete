@@ -149,7 +149,7 @@ export default function Collaboration() {
 
                 <div className="vis-row">
                   <div className="vis-img-col">
-                    <img alt="Podiums" src="/assets/images/solutions images/podiums.avif" className="vis-solution-img" />
+                    <img alt="Podiums" src="/assets/images/pod.png" className="vis-solution-img" />
                   </div>
                   <div className="vis-benefits-col">
                     <h4 className="services-details__title-2">Benefits</h4>
@@ -230,10 +230,6 @@ export default function Collaboration() {
               </div>
               <div className="premium-card-grid">
                 <div className="premium-service-card">
-                  <div className="premium-icon-wrapper"><img src="/assets/images/24-hours.png" /></div>
-                  <p><strong>24×7 SOC &amp; Seamless Support</strong> Continuous monitoring, rapid incident response, and proactive tuning by certified analysts.</p>
-                </div>
-                <div className="premium-service-card">
                   <div className="premium-icon-wrapper"><img src="/assets/images/certified.png" /></div>
                   <p><strong>Multi‑vendor, Certified Expertise</strong> With 40+ Global OEM Partnerships, we are bringing you future-proof solutions matched to your exact needs.</p>
                 </div>
@@ -279,7 +275,7 @@ export default function Collaboration() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

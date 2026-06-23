@@ -1,5 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import './Greythr.css';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
@@ -28,9 +30,17 @@ const whyTraceCards = [
 
 export default function Greythr() {
   useAwardsSlider();
-
+  const seoData = getSEOData('partnerGreythr');
   return (
     <div className="greythr-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── HERO ── */}
       <section className="greythr-hero gt-hero-purple">
@@ -66,8 +76,8 @@ export default function Greythr() {
 
               {/* Headline */}
               <h1 className="greythr-hero-title">
-                Empowering Workplaces<br />
-                with <span className="greythr-gradient-text">greytHR</span>
+                Leading greytHR<br />
+                <span className="greythr-gradient-text">Solutions Partner</span>
               </h1>
 
               {/* Description */}
@@ -82,8 +92,8 @@ export default function Greythr() {
                 <Link to="/contact-us" className="gt-cta-primary">
                   Get Free Demo <i className="fas fa-arrow-right"></i>
                 </Link>
-                <a href="tel:7032224513" className="gt-cta-secondary">
-                  <i className="fas fa-phone-alt"></i> Call Us Now
+                <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="gt-cta-secondary">
+                  <i className="fas fa-phone-alt"></i> WhatsApp Us
                 </a>
               </div>
 
@@ -159,7 +169,7 @@ export default function Greythr() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline &amp; cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

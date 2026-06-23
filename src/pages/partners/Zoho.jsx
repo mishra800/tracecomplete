@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Zoho.css';
@@ -63,8 +65,17 @@ const zohoUseCases = [
 
 export default function Zoho() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerZoho');
   return (
     <div className="zoho-page zh2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── Zoho Premium Hero ── */}
       <section className="zh2-hero">
@@ -78,15 +89,15 @@ export default function Zoho() {
           <div className="zh2-left" data-aos="fade-right" data-aos-duration="900">
 
             <h1 className="zh2-headline">
-              Zoho Business Suite<br />
-              &amp; CRM Solutions<br />
+              Leading Zoho Authorized Partner<br />
+              &amp; Business Solutions<br />
               <span className="zh2-headline-accent">Provider</span>
             </h1>
             <div className="zh2-headline-rule"></div>
 
             <p className="zh2-desc">
               All-in-one cloud-based business software for sales, finance, marketing,
-              and operations — implemented by{' '}
+              and operations - implemented by{' '}
               <a href="/contact-us" className="zh2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -151,7 +162,7 @@ export default function Zoho() {
 
           </div>
 
-          {/* RIGHT — Product Showcase */}
+          {/* RIGHT - Product Showcase */}
           <div className="zh2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
 
             <div className="zh2-product-glow" aria-hidden="true"></div>
@@ -207,6 +218,41 @@ export default function Zoho() {
                 <div className="cert-card-overlay"></div>
                 <span className="cert-tooltip">Zoho Desk Associate</span>
               </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (1).jpg" alt="Zoho Certification 1" title="Zoho Certification 1" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (2).jpg" alt="Zoho Certification 2" title="Zoho Certification 2" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (3).jpg" alt="Zoho Certification 3" title="Zoho Certification 3" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (4).jpg" alt="Zoho Certification 4" title="Zoho Certification 4" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (5).jpg" alt="Zoho Certification 5" title="Zoho Certification 5" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (6).jpg" alt="Zoho Certification 6" title="Zoho Certification 6" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (7).jpg" alt="Zoho Certification 7" title="Zoho Certification 7" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
               {/* Duplicate for seamless loop */}
               <div className="aruba-cert-img-card">
                 <img src="/assets/zoho CRM administrator.png" alt="Zoho CRM Administrator" title="Zoho CRM Administrator" />
@@ -218,6 +264,41 @@ export default function Zoho() {
                 <div className="cert-card-overlay"></div>
                 <span className="cert-tooltip">Zoho Desk Associate</span>
               </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (1).jpg" alt="Zoho Certification 1" title="Zoho Certification 1" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (2).jpg" alt="Zoho Certification 2" title="Zoho Certification 2" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (3).jpg" alt="Zoho Certification 3" title="Zoho Certification 3" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (4).jpg" alt="Zoho Certification 4" title="Zoho Certification 4" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (5).jpg" alt="Zoho Certification 5" title="Zoho Certification 5" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (6).jpg" alt="Zoho Certification 6" title="Zoho Certification 6" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
+              <div className="aruba-cert-img-card">
+                <img src="/assets/z1 (7).jpg" alt="Zoho Certification 7" title="Zoho Certification 7" />
+                <div className="cert-card-overlay"></div>
+                <span className="cert-tooltip">Zoho Certification</span>
+              </div>
             </div>
           </div>
         </div>
@@ -225,7 +306,7 @@ export default function Zoho() {
 
       {/* Use Cases Slider */}
 
-      {/* Career CTA — above Use Cases */}
+      {/* Career CTA - above Use Cases */}
       <section className="career-cta-section partner-cta-upgraded" data-aos="fade-up" data-aos-duration="900">
         <div className="career-cta-container">
           <div className="partner-cta-eyebrow"><i className="fas fa-briefcase"></i><span>FREE BUSINESS CONSULT</span></div>
@@ -234,10 +315,10 @@ export default function Zoho() {
           <div className="partner-cta-points">
             <div className="partner-cta-point"><i className="fas fa-search"></i><span>Top three process gaps slowing your teams down</span></div>
             <div className="partner-cta-point"><i className="fas fa-bolt"></i><span>Quick wins to automate workflows and boost productivity</span></div>
-            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
+            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate - no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

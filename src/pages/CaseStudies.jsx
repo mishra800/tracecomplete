@@ -3106,8 +3106,9 @@ export default function CaseStudies() {
   const scrollToLogoBar = () => {
     const anchor = document.getElementById("brand-logo-nav-anchor");
     if (anchor) {
+      const top = anchor.getBoundingClientRect().top + window.scrollY - 100;
       window.scrollTo({
-        top: anchor.offsetTop - 100,
+        top,
         behavior: 'smooth'
       });
     } else {
@@ -3141,9 +3142,12 @@ export default function CaseStudies() {
 
           for (let i = sectionsCache.length - 1; i >= 0; i--) {
             const section = sectionsCache[i];
-            if (section.el && scrollPosition >= section.el.offsetTop) {
-              activeSectionId = section.id;
-              break;
+            if (section.el) {
+              const elTop = section.el.getBoundingClientRect().top + window.scrollY;
+              if (scrollPosition >= elTop) {
+                activeSectionId = section.id;
+                break;
+              }
             }
           }
 
@@ -3190,8 +3194,9 @@ export default function CaseStudies() {
   const scrollToSection = (id) => {
     const el = id === "overview" ? document.querySelector(".blog-carousel-page") : document.getElementById(`${id}-cases`);
     if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 160; // Clear sticky header and sub-navigation bar
       window.scrollTo({
-        top: el.offsetTop - 160, // Clear sticky header and sub-navigation bar
+        top,
         behavior: "smooth"
       });
       setActiveTab(id);

@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Tenable.css';
@@ -15,8 +17,17 @@ const tenableUseCases = [
 
 export default function Tenable() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerTenable');
   return (
     <div className="tenable-page tnb-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- HERO -- */}
       <section className="tnb2-hero">
@@ -26,13 +37,13 @@ export default function Tenable() {
 
           <div className="tnb2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="tnb2-headline">
-              Tenable Cyber Exposure<br />
-              &amp; Vulnerability<br />
-              <span className="tnb2-headline-accent">Management Solutions</span>
+              Premier Tenable Cyber Exposure<br />
+              &amp; Vulnerability Management<br />
+              <span className="tnb2-headline-accent">Partner</span>
             </h1>
             <div className="tnb2-headline-rule"></div>
             <p className="tnb2-desc">
-              Continuously see, understand, and reduce cyber risk across hybrid and cloud environments &mdash; delivered by{' '}
+              Continuously see, understand, and reduce cyber risk across hybrid and cloud environments - delivered by{' '}
               <a href="/contact-us" className="tnb2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -141,7 +152,7 @@ export default function Tenable() {
             </ul>
 
             <div className="tnb2-cta-btn-wrapper">
-              <a href="tel:7032224513" className="tnb2-cta-btn-main">
+              <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="tnb2-cta-btn-main">
                 <span className="tnb2-cta-btn-text">Book Your Free Strategy Call</span>
                 <i className="fas fa-arrow-right"></i>
               </a>

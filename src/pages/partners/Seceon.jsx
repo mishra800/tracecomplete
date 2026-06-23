@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Seceon.css';
@@ -45,8 +47,17 @@ const seceonUseCases = [
 
 export default function Seceon() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerSeceon');
   return (
     <div className="seceon-page sc2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── Seceon Premium Hero ── */}
       <section className="sc2-hero">
@@ -60,15 +71,15 @@ export default function Seceon() {
           <div className="sc2-left" data-aos="fade-right" data-aos-duration="900">
 
             <h1 className="sc2-headline">
-              Seceon AI-Driven<br />
-              Cybersecurity<br />
-              <span className="sc2-headline-accent">Platform</span>
+              Leading Seceon Cybersecurity<br />
+              &amp; Threat Detection Solutions<br />
+              <span className="sc2-headline-accent">Provider</span>
             </h1>
             <div className="sc2-headline-rule"></div>
 
             <p className="sc2-desc">
               Comprehensive threat detection, incident response, and risk visibility
-              across modern IT environments — powered by AI and delivered by{' '}
+              across modern IT environments - powered by AI and delivered by{' '}
               <a href="/contact-us" className="sc2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -132,7 +143,7 @@ export default function Seceon() {
 
           </div>
 
-          {/* RIGHT — Product Showcase */}
+          {/* RIGHT - Product Showcase */}
           <div className="sc2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
 
             <div className="sc2-product-glow" aria-hidden="true"></div>
@@ -174,7 +185,7 @@ export default function Seceon() {
       
       {/* Use Cases Slider */}
 
-      {/* Career CTA — above Use Cases */}
+      {/* Career CTA - above Use Cases */}
       <section className="career-cta-section partner-cta-upgraded" data-aos="fade-up" data-aos-duration="900">
         <div className="career-cta-container">
           <div className="partner-cta-eyebrow"><i className="fas fa-chart-line"></i><span>FREE SOC CONSULT</span></div>
@@ -183,10 +194,10 @@ export default function Seceon() {
           <div className="partner-cta-points">
             <div className="partner-cta-point"><i className="fas fa-search"></i><span>Threat detection blind spots in your current SOC setup</span></div>
             <div className="partner-cta-point"><i className="fas fa-bolt"></i><span>Quick wins to automate response and reduce detection time</span></div>
-            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
+            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate - no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

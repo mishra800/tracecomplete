@@ -1,5 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './LogRhythm.css';
@@ -15,8 +17,17 @@ const logrhythmUseCases = [
 
 export default function LogRhythm() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerLogRhythm');
   return (
     <div className="lr-page lr-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- Hero -- */}
       <section className="lr2-hero">
@@ -28,9 +39,9 @@ export default function LogRhythm() {
           {/* LEFT */}
           <div className="lr2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="lr2-headline">
-              LogRhythm SIEM &amp;<br />
-              Security Operations<br />
-              <span className="lr2-headline-accent">Solutions Provider</span>
+              Leading LogRhythm SIEM<br />
+              &amp; Security Operations<br />
+              <span className="lr2-headline-accent">Partner</span>
             </h1>
             <div className="lr2-headline-rule"></div>
             <p className="lr2-desc">
@@ -134,7 +145,7 @@ export default function LogRhythm() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

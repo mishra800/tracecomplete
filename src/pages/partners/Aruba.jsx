@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Aruba.css';
@@ -8,6 +10,7 @@ import './Aruba-Products-POC.css';
 export default function Aruba() {
   // Initialize Awards Slider
   useAwardsSlider();
+  const seoData = getSEOData('partnerAruba');
 
   // Carousel state and functionality
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -132,6 +135,14 @@ export default function Aruba() {
 
   return (
     <div className="aruba-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
           {/* Aruba Hero Section with Performance Stats */}
           <section className="aruba-hero-new">
@@ -343,7 +354,7 @@ export default function Aruba() {
                 </ul>
 
                 <div className="aruba-cta-btn-wrapper">
-                  <a href="tel:7032224513" className="aruba-cta-btn">
+                  <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="aruba-cta-btn">
                     <span className="aruba-cta-btn-text">Book Your Free Strategy Call</span>
                     <i className="fas fa-arrow-right"></i>
                   </a>

@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Azure.css';
@@ -12,8 +14,17 @@ const azureUseCases = [
 
 export default function Azure() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerAzure');
   return (
     <div className="az-page az-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- Hero -- */}
       <section className="az2-hero">
@@ -25,14 +36,14 @@ export default function Azure() {
           {/* LEFT */}
           <div className="az2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="az2-headline">
-              Microsoft Azure<br />
-              Cloud Solutions<br />
-              <span className="az2-headline-accent">Provider</span>
+              Premier Microsoft Azure<br />
+              Cloud Infrastructure<br />
+              <span className="az2-headline-accent">Partner</span>
             </h1>
             <div className="az2-headline-rule"></div>
             <p className="az2-desc">
               Secure, scalable, and enterprise-grade cloud infrastructure for businesses,
-              government, healthcare, banking, and manufacturing � delivered by{' '}
+              government, healthcare, banking, and manufacturing - delivered by{' '}
               <a href="/contact-us" className="az2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
             <div className="az2-feature-row">
@@ -155,7 +166,7 @@ export default function Azure() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

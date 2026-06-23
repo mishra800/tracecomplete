@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './SolarWinds.css';
@@ -15,8 +17,17 @@ const solarwindsUseCases = [
 
 export default function SolarWinds() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerSolarWinds');
   return (
     <div className="solarwinds-page sw2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── HERO ── */}
       <section className="sw2-hero">
@@ -26,13 +37,13 @@ export default function SolarWinds() {
 
           <div className="sw2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="sw2-headline">
-              SolarWinds IT<br />
-              Infrastructure<br />
-              <span className="sw2-headline-accent">Monitoring Solutions</span>
+              Premier SolarWinds Network<br />
+              &amp; IT Infrastructure Monitoring<br />
+              <span className="sw2-headline-accent">Partner</span>
             </h1>
             <div className="sw2-headline-rule"></div>
             <p className="sw2-desc">
-              Comprehensive IT infrastructure monitoring, network visibility, and performance management &mdash; delivered by{' '}
+              Comprehensive IT infrastructure monitoring, network visibility, and performance management - delivered by{' '}
               <a href="/contact-us" className="sw2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -118,7 +129,7 @@ export default function SolarWinds() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

@@ -77,7 +77,8 @@ export default function Noc() {
 <div className="services-details__need-help-bdr"></div>
 <h3 className="services-details__need-help-title">Need Help?</h3>
 <p className="services-details__need-help-number">
-<a href="tel:+917032224513" title="Network Operations Center (NOC) in hyd">7032224513</a>
+<a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" title="WhatsApp support">90003 14411</a><br/>
+<small style={{ fontSize: '0.85em', opacity: 0.9 }}>(WhatsApp Support)</small>
 </p>
 </div>
 </div>
@@ -253,7 +254,7 @@ export default function Noc() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

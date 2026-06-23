@@ -87,8 +87,8 @@ export default function AdminEvents() {
                             <i className="fas fa-calendar-alt"></i>
                         </div>
                         <div className="page-title-section">
-                            <h1 className="page-title">Manage Events</h1>
-                            <p className="page-subtitle">
+                            <h1 className="page-title" style={{ color: '#1a202c' }}>Manage Events</h1>
+                            <p className="page-subtitle" style={{ color: '#718096' }}>
                                 {events.length} {events.length === 1 ? 'event' : 'events'} total
                             </p>
                         </div>

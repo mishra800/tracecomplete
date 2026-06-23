@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Ims.css';
@@ -15,8 +17,17 @@ const imsUseCases = [
 
 export default function Ims() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerIms');
   return (
     <div className="ims-page ims-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- HERO -- */}
       <section className="ims2-hero">
@@ -27,13 +38,13 @@ export default function Ims() {
 
           <div className="ims2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="ims2-headline">
-              EverestIMS Infrastructure<br />
-              Monitoring &amp; IT<br />
-              <span className="ims2-headline-accent">Operations Solutions</span>
+              Premier EverestIMS Infrastructure<br />
+              Monitoring &amp; IT Operations<br />
+              <span className="ims2-headline-accent">Partner</span>
             </h1>
             <div className="ims2-headline-rule"></div>
             <p className="ims2-desc">
-              AI-driven IT infrastructure monitoring, network observability, and IT operations management &mdash; delivered end-to-end by{' '}
+              AI-driven IT infrastructure monitoring, network observability, and IT operations management - delivered end-to-end by{' '}
               <a href="/contact-us" className="ims2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -105,7 +116,7 @@ export default function Ims() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

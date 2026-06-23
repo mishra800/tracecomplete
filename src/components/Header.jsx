@@ -347,6 +347,16 @@ export default function Header() {
               {/* Get In Touch button */}
               <div className="main-menu-two__right">
                 <div className="main-menu-two__btn-box">
+                  <a
+                    href="https://wa.me/919000314411?text=URGENT%3A%20I%20am%20currently%20under%20a%20cyber%20attack%20and%20need%20immediate%20assistance!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-get-started"
+                    title="Under Attack? Contact Us Now on WhatsApp"
+                  >
+                    <span className="btn-text">Under Attack?</span>
+                    <span className="btn-arrow"></span>
+                  </a>
                   <Link to="/contact-us" className="btn-get-started">
                     <span className="btn-text">Get In Touch</span>
                     <span className="btn-arrow"></span>
@@ -563,7 +573,7 @@ export default function Header() {
               <a href="https://www.youtube.com/@Tracenetworksolutions" target="_blank" rel="noopener noreferrer" className="youtube">
                 <span className="fab fa-youtube"></span>
               </a>
-              <a href="https://www.linkedin.com/company/tracenetworksolutions/" target="_blank" rel="noopener noreferrer" className="linkedin">
+              <a href="https://www.linkedin.com/company/tracenetwork/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="linkedin">
                 <span className="fab fa-linkedin-in"></span>
               </a>
               <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="whatsapp">

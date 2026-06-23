@@ -482,3 +482,22 @@
 /*--------------------------------------------------------------
 # End
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Editor Content Heading Styles
+--------------------------------------------------------------*/
+/* Ensure headings in event content editor are visible with black color */
+.event-one__title h1,
+.event-one__title h2,
+.event-one__title h3,
+.event-content h1,
+.event-content h2,
+.event-content h3,
+.editor-content h1,
+.editor-content h2,
+.editor-content h3,
+[contenteditable="true"] h1,
+[contenteditable="true"] h2,
+[contenteditable="true"] h3 {
+    color: #000000 !important;
+}

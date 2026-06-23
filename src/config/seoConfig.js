@@ -66,14 +66,23 @@ export const seoConfig = {
 
   blogs: {
     title: "IT & Cybersecurity Blogs | Expert Insights | Trace Network & Engineering",
-    description: "Read the latest insights, trends, and expert opinions on cybersecurity, network infrastructure, cloud solutions, and IT services from Trace Network & Engineering's technical experts.",
-    keywords: "IT blogs, cybersecurity blogs, network security articles, technology insights, IT trends, security best practices, trace network blog, cybersecurity articles, IT expert insights",
+    description: "Explore expert blogs on cybersecurity, network infrastructure, cloud security, and IT solutions from Trace Network & Engineering. Browse all articles, search by topic, and stay updated with the latest technology insights from Hyderabad's leading IT company.",
+    keywords: "IT blogs hyderabad, cybersecurity blogs india, network security articles, technology insights, IT trends hyderabad, security best practices, trace network blog, cybersecurity articles, IT expert insights, cloud security blog, network infrastructure blog, IT solutions blog hyderabad",
     ogImage: "/assets/images/cybersecurity.jpg",
+    canonical: "https://tracenetwork.in/blogs",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "Blog",
-      "name": "Trace Network Blog",
-      "description": "Expert insights on cybersecurity and IT solutions"
+      "name": "Trace Network IT & Cybersecurity Blog",
+      "description": "Expert blogs on cybersecurity, network infrastructure, cloud security, and IT solutions from Trace Network & Engineering, Hyderabad.",
+      "url": "https://tracenetwork.in/blogs",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Trace Network & Engineering Pvt Ltd",
+        "url": "https://tracenetwork.in",
+        "logo": "https://tracenetwork.in/assets/images/logoo.png"
+      },
+      "inLanguage": "en-IN"
     }
   },
 
@@ -304,9 +313,23 @@ export const seoConfig = {
   },
 
   events: {
-    title: "Events | Webinars & Workshops | Trace Network",
-    description: "Stay updated with our latest events, webinars, workshops, and training sessions on cybersecurity and IT technologies.",
-    keywords: "events, webinars, workshops, training, seminars, IT events, cybersecurity events, trace network events"
+    title: "IT & Cybersecurity Events in Hyderabad | Webinars & Workshops | Trace Network",
+    description: "Browse all upcoming and past IT and cybersecurity events, webinars, workshops, and technology seminars hosted by Trace Network & Engineering in Hyderabad. Search events by title or description and register for sessions on networking, cloud, and security.",
+    keywords: "IT events hyderabad, cybersecurity events india, technology webinars hyderabad, IT workshops hyderabad, cybersecurity seminars, network security events, trace network events, technology training hyderabad, cloud security webinars, IT community events india",
+    ogImage: "/assets/images/backgrounds/page-header-bg.jpg",
+    canonical: "https://tracenetwork.in/events",
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Trace Network IT & Cybersecurity Events",
+      "description": "Upcoming and past IT, cybersecurity, and technology events, webinars, and workshops hosted by Trace Network & Engineering.",
+      "url": "https://tracenetwork.in/events",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Trace Network & Engineering Pvt Ltd",
+        "url": "https://tracenetwork.in"
+      }
+    }
   },
 
   news: {
@@ -322,95 +345,606 @@ export const seoConfig = {
   },
 
   // Partner-specific SEO configurations
-  partnerSophos: {
-    title: "Sophos Partner | Cybersecurity Solutions | Trace Network",
-    description: "Trace Network is an authorized Sophos partner providing advanced cybersecurity solutions including endpoint protection, firewall, email security, and managed threat response services.",
-    keywords: "sophos partner, sophos cybersecurity, endpoint protection, sophos firewall, email security, managed threat response, cybersecurity solutions hyderabad"
-  },
+  // NOTE: Full partner Sophos entry is defined below in the updated section
 
   partnerHpe: {
-    title: "HPE Server Partner | Infrastructure Solutions | Trace Network",
-    description: "Authorized HPE partner delivering enterprise-grade server solutions, infrastructure management, and data center services for modern IT environments.",
-    keywords: "hpe partner, hpe server, enterprise infrastructure, data center solutions, server management, hpe proliant, infrastructure hyderabad"
+    title: "HPE Server & Infrastructure Partner in Hyderabad | HPE iLO & Hybrid Cloud | Trace Network",
+    description: "Trace Network is a top HPE server and infrastructure solution provider in Hyderabad delivering HPE ProLiant servers, HPE iLO intelligent lifecycle management, hybrid cloud-ready architecture, and high-performance enterprise IT infrastructure across 6+ industry sectors.",
+    keywords: "hpe partner hyderabad, hpe server hyderabad, hpe proliant hyderabad, hpe ilo management, hpe infrastructure india, hybrid cloud hpe, enterprise server hyderabad, hpe reseller india, trace network hpe, hpe storage hyderabad, hpe server deployment india",
+    ogImage: "/assets/images/partners/hpe.png",
+    canonical: `${siteUrl}/partners/hpe`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "HPE Server & Infrastructure Solutions",
+      "description": "Top HPE server and infrastructure solution provider delivering HPE ProLiant, iLO management, and hybrid cloud-ready architecture for enterprises.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Server & IT Infrastructure"
+    }
   },
 
   partnerAruba: {
-    title: "HPE Aruba Partner | Network Infrastructure | Trace Network",
-    description: "Leading HPE Aruba partner providing AI-powered networking solutions, wireless infrastructure, SD-WAN, and network security services.",
-    keywords: "aruba partner, hpe aruba, wireless networking, sd-wan, network infrastructure, ai networking, aruba central, networking hyderabad"
+    title: "HPE Aruba Gold Partner in Hyderabad | Wireless & SD-WAN | Trace Network",
+    description: "Trace Network is an HPE Aruba Gold Partner in Hyderabad providing AI-powered wireless networking, Aruba Central, SD-WAN, campus switching, and network access control for enterprises across India.",
+    keywords: "hpe aruba gold partner hyderabad, aruba wireless networking hyderabad, aruba SD-WAN, aruba central cloud management, aruba ClearPass NAC, campus network hyderabad, wifi solutions hyderabad, aruba switches hyderabad, trace network aruba, enterprise networking hyderabad",
+    ogImage: "/assets/images/partners/aruba.png",
+    canonical: `${siteUrl}/partners/aruba`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "HPE Aruba Networking Solutions",
+      "description": "HPE Aruba Gold Partner delivering AI-powered wireless, SD-WAN and campus networking solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Network Infrastructure Solutions"
+    }
   },
 
   partnerNutanix: {
-    title: "Nutanix Partner | Hyperconverged Infrastructure | Trace Network",
-    description: "Authorized Nutanix partner delivering hyperconverged infrastructure, cloud platform solutions, and enterprise cloud services.",
-    keywords: "nutanix partner, hyperconverged infrastructure, hci solutions, nutanix cloud, enterprise cloud, infrastructure modernization, nutanix hyderabad"
+    title: "Nutanix HCI Partner in Hyderabad | 43% TCO Reduction & 97% Less Downtime | Trace Network",
+    description: "Trace Network is a certified Nutanix partner in Hyderabad delivering hyperconverged infrastructure (HCI) with one-click management, 43% TCO reduction, 97% less downtime, and self-healing infrastructure for enterprise data centers across India.",
+    keywords: "nutanix partner hyderabad, nutanix HCI hyderabad, hyperconverged infrastructure india, nutanix TCO reduction, nutanix one-click management, nutanix AHV, nutanix cloud platform, HCI solutions india, data center modernization hyderabad, trace network nutanix, nutanix certified partner india",
+    ogImage: "/assets/images/partners/nutanix.png",
+    canonical: `${siteUrl}/partners/nutanix`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Nutanix HCI & Cloud Platform",
+      "description": "Certified Nutanix partner delivering hyperconverged infrastructure with 43% TCO reduction, 97% less downtime, and one-click unified management.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Hyperconverged Infrastructure"
+    }
   },
 
   partnerVeeam: {
-    title: "Veeam Partner | Backup & Recovery Solutions | Trace Network",
-    description: "Certified Veeam partner providing comprehensive backup, recovery, and data protection solutions for modern data centers and cloud environments.",
-    keywords: "veeam partner, backup solutions, data recovery, data protection, veeam backup, disaster recovery, cloud backup, veeam hyderabad"
+    title: "Veeam Authorized Reseller in Hyderabad | Backup, Immutable & Disaster Recovery | Trace Network",
+    description: "Trace Network is a Veeam authorized reseller in Hyderabad providing fast backup and recovery, immutable backups for ransomware protection, and cloud-hybrid data protection for virtual, physical, AWS, and Azure environments.",
+    keywords: "veeam authorized reseller hyderabad, veeam backup solutions india, veeam immutable backup, veeam ransomware protection, veeam disaster recovery, veeam replication, data protection hyderabad, cloud backup solutions, backup recovery hyderabad, trace network veeam, veeam virtual backup",
+    ogImage: "/assets/images/partners/veeam.png",
+    canonical: `${siteUrl}/partners/veeam`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Veeam Backup & Recovery Solutions",
+      "description": "Veeam authorized reseller delivering fast backup, immutable storage, replication and disaster recovery for virtual, physical and cloud environments.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Backup & Disaster Recovery"
+    }
   },
 
   partnerTenable: {
-    title: "Tenable Partner | Vulnerability Management | Trace Network",
-    description: "Authorized Tenable partner delivering vulnerability management, security assessment, and cyber exposure management solutions.",
-    keywords: "tenable partner, vulnerability management, security assessment, cyber exposure, tenable nessus, vulnerability scanning, security hyderabad"
+    title: "Tenable Cyber Exposure Partner in Hyderabad | OT/IoT & Cloud Vulnerability Management | Trace Network",
+    description: "Trace Network is a certified Tenable partner in Hyderabad delivering continuous cyber exposure management, vulnerability management for OT, IoT, cloud, applications, and identity — with 100% deployment success and risk-based prioritization.",
+    keywords: "tenable partner hyderabad, tenable nessus hyderabad, vulnerability management india, tenable OT security, tenable IoT security, tenable.io, tenable.sc, cyber exposure management hyderabad, risk-based vulnerability management, security scanning hyderabad, trace network tenable, tenable certified partner india",
+    ogImage: "/assets/images/partners/tenable.png",
+    canonical: `${siteUrl}/partners/tenable`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Tenable Cyber Exposure Management",
+      "description": "Certified Tenable partner delivering vulnerability management for OT, IoT, cloud, and identity with continuous cyber exposure management.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Vulnerability & Cyber Exposure Management"
+    }
   },
 
   partnerSify: {
-    title: "Sify Partner | Digital Services | Trace Network",
-    description: "Trusted Sify partner providing digital transformation services, cloud solutions, and managed IT services for enterprises.",
-    keywords: "sify partner, digital services, cloud solutions, managed IT services, digital transformation, enterprise services, sify hyderabad"
+    title: "Sify Technologies Partner in Hyderabad | Cloud, Data Center & Connectivity | Trace Network",
+    description: "Trace Network is a trusted Sify Technologies partner in Hyderabad providing Sify cloud services, data center co-location, enterprise network connectivity, and managed IT services for digital transformation across Indian enterprises.",
+    keywords: "sify technologies partner hyderabad, sify cloud services india, sify data center hyderabad, sify network connectivity, sify managed services, digital transformation hyderabad, cloud infrastructure india, sify colocation, enterprise cloud india, trace network sify, sify certified partner",
+    ogImage: "/assets/images/partners/sify.png",
+    canonical: `${siteUrl}/partners/sify`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Sify Cloud, Data Center & Connectivity Solutions",
+      "description": "Trusted Sify Technologies partner delivering cloud services, data center colocation, enterprise connectivity and managed IT services.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Cloud & Digital Services"
+    }
   },
 
   partnerAccops: {
-    title: "Accops Partner | Virtual Desktop Solutions | Trace Network",
-    description: "Authorized Accops partner delivering secure remote access, virtual desktop infrastructure, and endpoint security solutions.",
-    keywords: "accops partner, virtual desktop, remote access, vdi solutions, endpoint security, secure access, accops hyderabad"
+    title: "Accops Partner in Hyderabad | Zero Trust & VDI Solutions | Trace Network",
+    description: "Trace Network is an authorized Accops partner in Hyderabad delivering secure Zero Trust remote access, Virtual Desktop Infrastructure (VDI), application virtualization, and endpoint security solutions.",
+    keywords: "accops partner hyderabad, zero trust remote access, VDI solutions india, accops VDI hyderabad, virtual desktop infrastructure, secure remote access, application virtualization hyderabad, endpoint security accops, trace network accops, zero trust security hyderabad",
+    ogImage: "/assets/images/partners/accops.png",
+    canonical: `${siteUrl}/partners/accops`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Accops Zero Trust & VDI Solutions",
+      "description": "Authorized Accops partner delivering Zero Trust access, VDI and endpoint security solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Zero Trust & Virtual Desktop Infrastructure"
+    }
   },
 
   partnerCymmetri: {
-    title: "Cymmetri Partner | Identity Management | Trace Network",
-    description: "Certified Cymmetri partner providing identity and access management, privileged access management, and identity governance solutions.",
-    keywords: "cymmetri partner, identity management, access management, privileged access, identity governance, iam solutions, cymmetri hyderabad"
+    title: "Cymmetri Partner in Hyderabad | Identity & Access Management | Trace Network",
+    description: "Trace Network is a certified Cymmetri partner in Hyderabad providing Identity and Access Management (IAM), Single Sign-On (SSO), Multi-Factor Authentication (MFA), and Privileged Access Management solutions.",
+    keywords: "cymmetri partner hyderabad, identity access management hyderabad, cymmetri IAM, SSO solutions india, multi-factor authentication hyderabad, MFA solutions, privileged access management cymmetri, identity governance hyderabad, trace network cymmetri, IAM solutions india",
+    ogImage: "/assets/images/partners/cymmetri.png",
+    canonical: `${siteUrl}/partners/cymmetri`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Cymmetri Identity & Access Management",
+      "description": "Certified Cymmetri partner delivering IAM, SSO, MFA and privileged access management solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Identity & Access Management"
+    }
   },
 
   partnerMotadata: {
-    title: "Motadata Partner | IT Monitoring Solutions | Trace Network",
-    description: "Authorized Motadata partner delivering comprehensive IT infrastructure monitoring, network monitoring, and IT service management solutions.",
-    keywords: "motadata partner, it monitoring, network monitoring, infrastructure monitoring, itsm solutions, motadata hyderabad"
+    title: "Motadata Partner in Hyderabad | IT Monitoring & ITSM | Trace Network",
+    description: "Trace Network is an authorized Motadata partner in Hyderabad delivering IT infrastructure monitoring, network monitoring, log analytics, and IT service management (ITSM) solutions.",
+    keywords: "motadata partner hyderabad, motadata IT monitoring, network monitoring hyderabad, motadata ITSM, IT service management india, log analytics hyderabad, infrastructure monitoring solutions, motadata servicegrid, trace network motadata, ITSM solutions india",
+    ogImage: "/assets/images/partners/motadata.png",
+    canonical: `${siteUrl}/partners/motadata`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Motadata IT Monitoring & ITSM",
+      "description": "Authorized Motadata partner delivering IT infrastructure monitoring and service management solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "IT Monitoring & Service Management"
+    }
   },
 
   partnerPaloalto: {
-    title: "Palo Alto Networks Partner | Next-Gen Security | Trace Network",
-    description: "Authorized Palo Alto Networks partner providing next-generation firewalls, cloud security, and advanced threat protection solutions.",
-    keywords: "palo alto partner, next-gen firewall, cloud security, threat protection, palo alto networks, ngfw, security hyderabad"
+    title: "Palo Alto Networks Partner in Hyderabad | NGFW, Zero Trust & AI-Powered Security | Trace Network",
+    description: "Trace Network is a certified Palo Alto Networks partner in Hyderabad delivering next-generation firewalls (NGFW), Zero Trust security, AI-powered threat prevention, Prisma Cloud, Cortex XDR, and SASE solutions with 1000+ enterprise deployments.",
+    keywords: "palo alto networks partner hyderabad, palo alto NGFW hyderabad, palo alto zero trust, AI powered firewall hyderabad, prisma cloud india, cortex XDR hyderabad, SASE solutions india, next generation firewall hyderabad, palo alto wildfire, trace network palo alto, cloud security hyderabad, palo alto 1000 deployments",
+    ogImage: "/assets/images/partners/paloalto.png",
+    canonical: `${siteUrl}/partners/palo-alto`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Palo Alto Networks Security Solutions",
+      "description": "Certified Palo Alto Networks partner delivering NGFW, Zero Trust, AI-powered threat prevention, Prisma Cloud, Cortex XDR, and SASE solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Next-Gen Firewall & Cloud Security"
+    }
   },
 
   partnerPeoplelink: {
-    title: "PeopleLink Partner | Unified Communications | Trace Network",
-    description: "Certified PeopleLink partner delivering unified communications, collaboration solutions, and digital workplace services.",
-    keywords: "peoplelink partner, unified communications, collaboration solutions, digital workplace, communication services, peoplelink hyderabad"
+    title: "PeopleLink Audio & Video Conferencing Partner in Hyderabad | SAARC Leading Partner | Trace Network",
+    description: "Trace Network is a SAARC leading PeopleLink partner in Hyderabad delivering HD audio and video conferencing, smart meeting rooms, enterprise collaboration, secure encrypted communication, and scalable unified platforms for enterprises, government, and healthcare.",
+    keywords: "peoplelink partner hyderabad, peoplelink audio video conferencing, peoplelink SAARC partner, HD conferencing hyderabad, smart meeting rooms india, enterprise video conferencing hyderabad, peoplelink collaboration, secure conferencing solutions, unified communications hyderabad, trace network peoplelink, peoplelink certified partner india",
+    ogImage: "/assets/images/partners/peoplelink.png",
+    canonical: `${siteUrl}/partners/peoplelink`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "PeopleLink Audio & Video Conferencing Solutions",
+      "description": "SAARC leading PeopleLink partner delivering HD audio/video conferencing, smart meeting rooms and enterprise collaboration solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Audio & Video Conferencing"
+    }
   },
 
   partnerQualys: {
-    title: "Qualys Partner | Vulnerability Management & Compliance | Trace Network",
-    description: "Authorized Qualys partner providing cloud-based vulnerability management, compliance monitoring, and continuous security assessment solutions.",
-    keywords: "qualys partner, vulnerability management, compliance monitoring, security assessment, qualys vmdr, cloud security, qualys hyderabad"
+    title: "Qualys SAARC Partner in Hyderabad | Cloud Vulnerability Management & Compliance | Trace Network",
+    description: "Trace Network is a leading Qualys partner in SAARC and Hyderabad delivering cloud-based vulnerability management, VMDR, continuous compliance monitoring, patch automation, web application scanning, and real-time threat visibility across hybrid IT environments.",
+    keywords: "qualys SAARC partner hyderabad, qualys VMDR, cloud vulnerability management india, qualys compliance monitoring, patch automation hyderabad, qualys web application scanning, qualys cloud platform, continuous security assessment, vulnerability scanning hyderabad, trace network qualys, VMDR solutions india, qualys leading partner",
+    ogImage: "/assets/images/partners/qualys.png",
+    canonical: `${siteUrl}/partners/qualys`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Qualys Cloud Vulnerability Management",
+      "description": "Leading Qualys SAARC partner delivering cloud vulnerability management, VMDR, compliance monitoring and patch automation.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Vulnerability Management & Compliance"
+    }
   },
 
   partnerSafetica: {
-    title: "Safetica Partner | Data Loss Prevention | Trace Network",
-    description: "Certified Safetica partner delivering advanced data loss prevention, insider risk management, and endpoint data protection solutions.",
-    keywords: "safetica partner, data loss prevention, dlp solutions, insider risk management, endpoint protection, data security, safetica hyderabad"
+    title: "Safetica SAARC Partner in Hyderabad | DLP via USB, Email, Cloud & Web | Trace Network",
+    description: "Trace Network is a certified Safetica SAARC partner in Hyderabad providing advanced Data Loss Prevention (DLP) blocking leaks via USB, email, cloud and web, insider risk management, and real-time security dashboards to protect sensitive enterprise data.",
+    keywords: "safetica SAARC partner hyderabad, safetica DLP, data loss prevention USB email cloud web, insider threat protection india, safetica one, insider risk management, data security hyderabad, endpoint data protection, trace network safetica, DLP solutions india, safetica certified partner",
+    ogImage: "/assets/images/partners/safetica.png",
+    canonical: `${siteUrl}/partners/safetica`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Safetica DLP & Insider Risk Management",
+      "description": "Certified Safetica SAARC partner delivering DLP protection for USB, email, cloud and web channels along with insider risk management.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Data Loss Prevention"
+    }
   },
 
   partnerManageengine: {
-    title: "ManageEngine Partner | IT Management Solutions | Trace Network",
-    description: "Authorized ManageEngine partner providing comprehensive IT management, endpoint management, network monitoring, and IT service management solutions.",
-    keywords: "manageengine partner, it management, endpoint management, network monitoring, itsm solutions, zoho manageengine, it management hyderabad"
+    title: "ManageEngine Partner in Hyderabad | ITSM & Endpoint Management | Trace Network",
+    description: "Trace Network is an authorized ManageEngine partner in Hyderabad providing ServiceDesk Plus, Endpoint Central, OpManager, PAM360, and comprehensive IT management solutions for enterprises.",
+    keywords: "manageengine partner hyderabad, manageengine servicedesk plus, endpoint central hyderabad, manageengine opmanager, IT management solutions india, ITSM hyderabad, PAM360, manageengine zoho, trace network manageengine, IT service management hyderabad",
+    ogImage: "/assets/images/partners/manageengine.png",
+    canonical: `${siteUrl}/partners/manage-engine`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "ManageEngine IT Management Solutions",
+      "description": "Authorized ManageEngine partner providing ITSM, endpoint management and network monitoring solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "IT Management Solutions"
+    }
   },
+
+  // ── NEW PARTNER SEO ENTRIES ────────────────────────────────────────────────
+
+  partnerAcronis: {
+    title: "Acronis Partner in Hyderabad | Backup & Cyber Protection | Trace Network",
+    description: "Trace Network is a trusted Acronis cyber protection partner in Hyderabad delivering enterprise backup, disaster recovery, ransomware protection, and endpoint security. Unified cyber protection for banking, healthcare, government and IT sectors.",
+    keywords: "acronis partner hyderabad, acronis backup solutions, acronis cyber protect, enterprise backup hyderabad, ransomware protection, disaster recovery solutions, acronis certified partner india, data backup hyderabad, acronis endpoint security, trace network acronis",
+    ogImage: "/assets/images/partners/acronis.png",
+    canonical: `${siteUrl}/partners/acronis`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Acronis Cyber Protection Solutions",
+      "description": "Enterprise backup, disaster recovery, and cyber protection solutions powered by Acronis, delivered by Trace Network & Engineering.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Backup & Cyber Protection"
+    }
+  },
+
+  partnerApple: {
+    title: "Apple Solutions Partner in Hyderabad | Mac & iOS Enterprise | Trace Network",
+    description: "Trace Network is an authorized Apple solutions partner in Hyderabad providing Mac, iPad, and iPhone enterprise deployments, device management, and Apple Business Manager solutions for education, government and enterprises.",
+    keywords: "apple partner hyderabad, apple enterprise solutions, mac deployment india, apple business manager, iOS device management, mdm apple, apple reseller hyderabad, mac for enterprise, trace network apple",
+    ogImage: "/assets/images/partners/apple.png",
+    canonical: `${siteUrl}/partners/apple`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Apple Enterprise Solutions",
+      "description": "Authorized Apple solutions partner delivering Mac, iPad and iPhone enterprise deployments and MDM services.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Apple Enterprise Solutions"
+    }
+  },
+
+  partnerArcon: {
+    title: "Arcon Partner | Privileged Access Management | Trace Network Hyderabad",
+    description: "Trace Network is an authorized Arcon partner in Hyderabad offering Privileged Access Management (PAM), Privileged Identity Management, and Zero Trust security solutions to protect critical enterprise systems.",
+    keywords: "arcon partner hyderabad, privileged access management hyderabad, arcon pam, pam solutions india, privileged identity management, zero trust security, arcon iam, trace network arcon, PAM hyderabad, critical access security",
+    ogImage: "/assets/images/partners/arcon.png",
+    canonical: `${siteUrl}/partners/arcon`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Arcon Privileged Access Management",
+      "description": "Authorized Arcon partner providing Privileged Access Management and identity security solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Privileged Access Management"
+    }
+  },
+
+  partnerAzure: {
+    title: "Microsoft Azure Partner in Hyderabad | Cloud Solutions | Trace Network",
+    description: "Trace Network is a Microsoft Azure certified partner in Hyderabad delivering cloud migration, Azure infrastructure, Azure security, and managed cloud services for enterprises across India.",
+    keywords: "microsoft azure partner hyderabad, azure cloud solutions india, azure migration hyderabad, azure infrastructure services, azure security hyderabad, cloud managed services india, azure certified partner, azure devops hyderabad, trace network azure, microsoft cloud hyderabad",
+    ogImage: "/assets/images/partners/azure.png",
+    canonical: `${siteUrl}/partners/azure`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Microsoft Azure Cloud Solutions",
+      "description": "Microsoft Azure certified partner providing cloud migration, infrastructure, and managed Azure services.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Cloud Solutions"
+    }
+  },
+
+  partnerDell: {
+    title: "Dell Technologies Partner in Hyderabad | Servers & Storage | Trace Network",
+    description: "Trace Network is an authorized Dell Technologies partner in Hyderabad offering Dell PowerEdge servers, Dell EMC storage, networking, and end-to-end IT infrastructure solutions for enterprises and data centers.",
+    keywords: "dell technologies partner hyderabad, dell server hyderabad, dell EMC storage india, dell poweredge server, dell networking solutions, dell reseller hyderabad, enterprise server india, IT infrastructure dell, trace network dell, dell workstation hyderabad",
+    ogImage: "/assets/images/partners/dell.png",
+    canonical: `${siteUrl}/partners/dell`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Dell Technologies IT Infrastructure",
+      "description": "Authorized Dell Technologies partner delivering servers, storage, and IT infrastructure solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "IT Infrastructure Solutions"
+    }
+  },
+
+  partnerForcepoint: {
+    title: "Forcepoint Partner in Hyderabad | DLP & Web Security | Trace Network",
+    description: "Trace Network is an authorized Forcepoint partner in Hyderabad providing Data Loss Prevention (DLP), web security, CASB, and insider threat solutions to protect enterprise data and users.",
+    keywords: "forcepoint partner hyderabad, forcepoint DLP hyderabad, data loss prevention india, forcepoint web security, forcepoint CASB, insider threat protection, forcepoint cybersecurity, data security hyderabad, trace network forcepoint, enterprise DLP solutions",
+    ogImage: "/assets/images/partners/forcepoint.png",
+    canonical: `${siteUrl}/partners/forcepoint`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Forcepoint Data Security Solutions",
+      "description": "Authorized Forcepoint partner delivering DLP, web security and insider threat protection solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Data Loss Prevention"
+    }
+  },
+
+  partnerFortyTwoGears: {
+    title: "42Gears Partner in Hyderabad | MDM & UEM Solutions | Trace Network",
+    description: "Trace Network is an authorized 42Gears partner in Hyderabad delivering Mobile Device Management (MDM), Unified Endpoint Management (UEM), and enterprise mobility solutions for Android, iOS and Windows devices.",
+    keywords: "42gears partner hyderabad, MDM solutions india, unified endpoint management hyderabad, mobile device management india, 42gears MDM, enterprise mobility solutions, UEM hyderabad, android MDM, iOS MDM, trace network 42gears",
+    ogImage: "/assets/images/partners/42gears.png",
+    canonical: `${siteUrl}/partners/fortytwo-gears`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "42Gears MDM & UEM Solutions",
+      "description": "Authorized 42Gears partner providing Mobile Device Management and Unified Endpoint Management solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Mobile Device Management"
+    }
+  },
+
+  partnerGfiSoftware: {
+    title: "GFI Software Partner in Hyderabad | Email & Network Security | Trace Network",
+    description: "Trace Network is an authorized GFI Software partner in Hyderabad providing email security, network monitoring, patch management, and IT security solutions for SMBs and enterprises.",
+    keywords: "GFI software partner hyderabad, GFI email security, GFI network monitor, GFI LanGuard, patch management hyderabad, email security india, IT security SMB, network security hyderabad, trace network GFI",
+    ogImage: "/assets/images/partners/gfisoftware.png",
+    canonical: `${siteUrl}/partners/gfi-software`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "GFI Software Security Solutions",
+      "description": "Authorized GFI Software partner providing email security, network monitoring and patch management.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Email & Network Security"
+    }
+  },
+
+  partnerGreythr: {
+    title: "greytHR Partner in Hyderabad | HRMS & Payroll Software | Trace Network",
+    description: "Trace Network is an authorized greytHR partner in Hyderabad delivering cloud-based HR management, payroll processing, attendance, and employee self-service solutions for Indian businesses.",
+    keywords: "greythr partner hyderabad, greythr HRMS, HR software india, payroll software hyderabad, attendance management, employee self-service, cloud HR hyderabad, HR management system india, trace network greythr, HRMS solutions hyderabad",
+    ogImage: "/assets/images/partners/greythr.png",
+    canonical: `${siteUrl}/partners/greythr`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "greytHR HRMS Solutions",
+      "description": "Authorized greytHR partner delivering cloud HR, payroll, and workforce management solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "HR Management Software"
+    }
+  },
+
+  partnerHp: {
+    title: "HP Partner in Hyderabad | Laptops, Desktops & Printers | Trace Network",
+    description: "Trace Network is an authorized HP partner in Hyderabad supplying HP laptops, desktops, workstations, printers, and enterprise IT hardware solutions for businesses, education, and government sectors.",
+    keywords: "hp partner hyderabad, hp laptop hyderabad, hp desktop india, hp workstation hyderabad, hp printer hyderabad, hp enterprise hardware, hp reseller india, HP authorized dealer hyderabad, trace network hp, hp elitebook hyderabad",
+    ogImage: "/assets/images/partners/hp.png",
+    canonical: `${siteUrl}/partners/hp`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "HP Hardware Solutions",
+      "description": "Authorized HP partner supplying laptops, desktops, workstations and enterprise hardware.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "IT Hardware Solutions"
+    }
+  },
+
+  partnerIms: {
+    title: "IMS Partner | IT Infrastructure & Managed Services | Trace Network",
+    description: "Trace Network delivers comprehensive IT Infrastructure Management Services (IMS) in Hyderabad including server management, network monitoring, helpdesk support, and proactive IT management for enterprises.",
+    keywords: "IMS partner hyderabad, IT infrastructure management services, managed IT services hyderabad, server management india, IT helpdesk support, proactive IT management, infrastructure monitoring hyderabad, trace network IMS, enterprise IT management",
+    ogImage: "/assets/images/partners/ims.png",
+    canonical: `${siteUrl}/partners/ims`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "IT Infrastructure Management Services",
+      "description": "Comprehensive IT infrastructure management and managed services for enterprises.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "IT Infrastructure Management"
+    }
+  },
+
+  partnerK7Security: {
+    title: "K7 Security Partner in Hyderabad | Antivirus & Endpoint Security | Trace Network",
+    description: "Trace Network is an authorized K7 Security partner in Hyderabad offering K7 antivirus, endpoint security, unified threat management, and centralized security management for enterprises, banks, and government organizations.",
+    keywords: "k7 security partner hyderabad, k7 antivirus hyderabad, k7 endpoint security, k7 enterprise security, antivirus solutions hyderabad, endpoint protection india, k7 UTM, centralized antivirus management, trace network k7, k7 security india",
+    ogImage: "/assets/images/partners/k7security.png",
+    canonical: `${siteUrl}/partners/k7-security`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "K7 Security Endpoint Protection",
+      "description": "Authorized K7 Security partner delivering antivirus, endpoint security and UTM solutions for enterprises.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Antivirus & Endpoint Security"
+    }
+  },
+
+  partnerLenovo: {
+    title: "Lenovo Partner in Hyderabad | ThinkPad, Servers & IT Hardware | Trace Network",
+    description: "Trace Network is an authorized Lenovo partner in Hyderabad providing Lenovo ThinkPad laptops, ThinkCentre desktops, ThinkSystem servers, and enterprise IT hardware solutions for businesses across India.",
+    keywords: "lenovo partner hyderabad, lenovo thinkpad hyderabad, lenovo server india, lenovo enterprise hardware, lenovo ThinkSystem, lenovo reseller india, lenovo laptop hyderabad, IT hardware lenovo, trace network lenovo, lenovo thinkcenter hyderabad",
+    ogImage: "/assets/images/partners/lenovo.png",
+    canonical: `${siteUrl}/partners/lenovo`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Lenovo IT Hardware Solutions",
+      "description": "Authorized Lenovo partner providing ThinkPad laptops, ThinkSystem servers and enterprise hardware.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "IT Hardware Solutions"
+    }
+  },
+
+  partnerLogRhythm: {
+    title: "LogRhythm Partner in Hyderabad | SIEM Solutions | Trace Network",
+    description: "Trace Network is an authorized LogRhythm partner in Hyderabad delivering SIEM, log management, threat intelligence, and security analytics solutions to detect and respond to cyber threats in real time.",
+    keywords: "logrhythm partner hyderabad, SIEM solutions india, logrhythm SIEM, security information event management, log management hyderabad, threat intelligence platform, security analytics hyderabad, SOC solutions india, trace network logrhythm, SIEM hyderabad",
+    ogImage: "/assets/images/partners/logrhythm.png",
+    canonical: `${siteUrl}/partners/logrhythm`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "LogRhythm SIEM Solutions",
+      "description": "Authorized LogRhythm partner delivering SIEM, log management and security analytics solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "SIEM & Security Analytics"
+    }
+  },
+
+  partnerMicrosoft365: {
+    title: "Microsoft 365 Partner in Hyderabad | Office 365 & Licensing | Trace Network",
+    description: "Trace Network is an authorized Microsoft 365 partner in Hyderabad offering Microsoft 365 licensing, Office 365 deployment, Teams, SharePoint, OneDrive, and Microsoft cloud productivity solutions for businesses.",
+    keywords: "microsoft 365 partner hyderabad, office 365 hyderabad, microsoft 365 licensing india, teams deployment hyderabad, microsoft cloud solutions, sharepoint hyderabad, M365 reseller india, microsoft 365 business, trace network microsoft, office 365 setup hyderabad",
+    ogImage: "/assets/images/partners/microsoft365.png",
+    canonical: `${siteUrl}/partners/microsoft365`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Microsoft 365 Cloud Productivity Solutions",
+      "description": "Authorized Microsoft 365 partner delivering Office 365 licensing, Teams, and cloud productivity solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Cloud Productivity Solutions"
+    }
+  },
+
+  partnerPoly: {
+    title: "Poly Collaboration Partner in Hyderabad | AI Noise Cancellation, Teams & Zoom Certified | Trace Network",
+    description: "Trace Network is a certified Poly (Plantronics) partner in Hyderabad providing AI noise-cancellation headsets, smart video conferencing cameras, meeting room solutions, and hybrid workplace communication certified for Microsoft Teams, Zoom, and Webex.",
+    keywords: "poly partner hyderabad, poly headsets AI noise cancellation, poly video conferencing, poly teams certified, poly zoom certified, poly webex certified, plantronics headsets hyderabad, hybrid workplace communication, smart meeting rooms india, poly collaboration solutions, trace network poly, poly certified partner",
+    ogImage: "/assets/images/partners/poly.png",
+    canonical: `${siteUrl}/partners/poly`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Poly Collaboration & Communication Solutions",
+      "description": "Certified Poly partner delivering AI noise-cancellation headsets, video conferencing, and Teams/Zoom/Webex-certified hybrid workplace solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Collaboration & Unified Communications"
+    }
+  },
+
+  partnerSeceon: {
+    title: "Seceon Partner in Hyderabad | SIEM+XDR & 24/7 SOC Monitoring | Trace Network",
+    description: "Trace Network is an authorized Seceon partner in Hyderabad delivering AI-driven open threat management, unified SIEM+XDR platform, 24/7 SOC monitoring, behavioral analytics, and automated incident response for proactive enterprise cybersecurity.",
+    keywords: "seceon partner hyderabad, seceon OTM, seceon SIEM XDR, AI threat detection hyderabad, 24/7 SOC monitoring india, open threat management, SOC automation india, behavioral analytics security, cybersecurity AI hyderabad, advanced threat management, trace network seceon, AI security solutions india",
+    ogImage: "/assets/images/partners/seceon.png",
+    canonical: `${siteUrl}/partners/seceon`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Seceon SIEM+XDR & AI Threat Management",
+      "description": "Authorized Seceon partner delivering unified SIEM+XDR platform, 24/7 SOC monitoring, behavioral analytics and automated threat response.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "AI-Driven Threat Detection & SOC"
+    }
+  },
+
+  partnerSolarWinds: {
+    title: "SolarWinds Partner in Hyderabad | Network, Server, Database & Cloud Monitoring | Trace Network",
+    description: "Trace Network is a premier SolarWinds partner in Hyderabad providing complete IT infrastructure monitoring covering network, servers, databases, and cloud — with real-time performance analytics, proactive alerting, and 1000+ enterprise deployments.",
+    keywords: "solarwinds partner hyderabad, solarwinds network monitoring, solarwinds server monitoring, solarwinds database monitoring, IT monitoring solutions india, solarwinds ITSM, solarwinds NPM, network performance monitoring, IT observability hyderabad, solarwinds service desk, trace network solarwinds, IT management hyderabad",
+    ogImage: "/assets/images/partners/solarwinds.png",
+    canonical: `${siteUrl}/partners/solarwinds`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "SolarWinds IT Infrastructure Monitoring",
+      "description": "Premier SolarWinds partner delivering complete monitoring for network, servers, databases and cloud with proactive alerting and performance analytics.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "IT Monitoring & Observability"
+    }
+  },
+
+  partnerSophos: {
+    title: "Sophos Partner of the Year 2025 India & SAARC | #1 Sophos Platinum Partner Hyderabad | Trace Network",
+    description: "Trace Network is the Sophos Partner of the Year 2025 for India & SAARC — the #1 Sophos Platinum Partner in Hyderabad with 20+ years of excellence, 1000+ deployments, 15+ certified engineers, delivering endpoint protection, XG Firewall, EDR, MDR, and 24x7 Managed Threat Response.",
+    keywords: "sophos partner of the year 2025, sophos platinum partner hyderabad, sophos india SAARC partner, sophos MDR 24x7, sophos XG firewall, sophos endpoint protection, sophos EDR, sophos intercept X, managed threat response hyderabad, sophos email security, best sophos partner india, trace network sophos, sophos 1000 deployments hyderabad",
+    ogImage: "/assets/images/partners/sophos.png",
+    canonical: `${siteUrl}/partners/sophos`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Sophos Cybersecurity Solutions – Partner of the Year 2025",
+      "description": "Sophos Partner of the Year 2025 for India & SAARC, delivering endpoint protection, XG Firewall, EDR, MDR and 24x7 Managed Threat Response with 1000+ enterprise deployments.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Endpoint & Network Security"
+    }
+  },
+
+  partnerVmware: {
+    title: "VMware Partner in Hyderabad | Virtualization & Cloud Solutions | Trace Network",
+    description: "Trace Network is an authorized VMware partner in Hyderabad delivering server virtualization, VMware vSphere, NSX, vSAN, and VMware Cloud solutions for enterprise data centers and hybrid cloud environments.",
+    keywords: "vmware partner hyderabad, vmware virtualization india, vsphere hyderabad, vmware NSX, vmware vSAN, server virtualization solutions, vmware cloud hyderabad, vmware horizon, vmware reseller india, trace network vmware, data center virtualization",
+    ogImage: "/assets/images/partners/vmware.png",
+    canonical: `${siteUrl}/partners/vmware`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "VMware Virtualization Solutions",
+      "description": "Authorized VMware partner delivering server virtualization, vSphere, NSX and cloud solutions.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Virtualization & Cloud"
+    }
+  },
+
+  partnerZoho: {
+    title: "Zoho Authorized Partner in Hyderabad | 45+ Apps, CRM & Business Automation | Trace Network",
+    description: "Trace Network is an authorized Zoho partner in Hyderabad delivering Zoho One (45+ integrated apps), Zoho CRM, Zoho Books, Zoho People HRMS, Zoho Desk, and complete cloud-based business automation for sales, finance, marketing, and operations.",
+    keywords: "zoho partner hyderabad, zoho one 45 apps hyderabad, zoho CRM hyderabad, zoho books accounting, zoho people HRMS, zoho desk hyderabad, zoho reseller india, zoho business automation, cloud business software hyderabad, trace network zoho, zoho authorized partner india, zoho workflow automation",
+    ogImage: "/assets/images/partners/zoho.png",
+    canonical: `${siteUrl}/partners/zoho`,
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Zoho Business Applications & Automation",
+      "description": "Authorized Zoho partner delivering Zoho One with 45+ integrated apps for CRM, accounting, HRMS, and complete business automation.",
+      "provider": { "@type": "Organization", "name": companyName, "url": siteUrl },
+      "areaServed": { "@type": "Country", "name": "India" },
+      "serviceType": "Business Cloud Applications"
+    }
+  },
+
+  // ── UPDATE EXISTING PARTNER ENTRIES WITH FULL structured data ────────────
 
   soc: {
     title: "SOC Services | Security Operations Center | Trace Network",
@@ -511,14 +1045,52 @@ export const seoConfig = {
   },
 
   eventss: {
-    title: "Events & Webinars | Technology Training | Trace Network",
-    description: "Join our technology events, webinars, workshops, and training sessions on cybersecurity, networking, and IT infrastructure.",
-    keywords: "technology events, IT webinars, cybersecurity workshops, training sessions, tech seminars, trace network events",
+    title: "Technology Events & Roadshows | Edutech, Cloud, Sophos MDR & More | Trace Network",
+    description: "Explore Trace Network & Engineering's technology events and roadshows in Hyderabad — including Edutech Connect (April 2024), Digital Nexus Cloud & Data Event (June 2024), Sophos MDR Experience Roadshow (July 2024), and Sophos Technical Workshop (August 2024). Powering innovation through technology and collaboration.",
+    keywords: "trace network events hyderabad, edutech connect 2024, digital nexus event, sophos MDR roadshow hyderabad, sophos technical workshop, cybersecurity event hyderabad, technology innovation events india, cloud data communication event, IT networking event hyderabad, trace network roadshow",
+    canonical: "https://tracenetwork.in/eventss",
+    ogImage: "/assets/images/events/event1.jpg",
     structuredData: {
       "@context": "https://schema.org",
       "@type": "EventSeries",
-      "name": "Trace Network Technology Events",
-      "description": "Regular technology and cybersecurity events and training sessions"
+      "name": "Trace Network Technology Events & Roadshows",
+      "description": "A series of technology events, roadshows, and workshops by Trace Network & Engineering covering cybersecurity, cloud, networking, and education technology.",
+      "url": "https://tracenetwork.in/eventss",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Trace Network & Engineering Pvt Ltd",
+        "url": "https://tracenetwork.in"
+      },
+      "location": {
+        "@type": "Place",
+        "name": "Hyderabad, Telangana, India"
+      },
+      "subEvent": [
+        {
+          "@type": "Event",
+          "name": "Edutech Connect - Bridging Institutions and Tech Innovation",
+          "startDate": "2024-04-19",
+          "description": "A convergence of academic institutions and technology innovators to enable next-gen learning experiences."
+        },
+        {
+          "@type": "Event",
+          "name": "Digital Nexus - Uniting Cloud, Data, and Communication for Your Business",
+          "startDate": "2024-06-07",
+          "description": "Explore how integrated digital infrastructures are redefining the future of business communications."
+        },
+        {
+          "@type": "Event",
+          "name": "Sophos MDR Experience Roadshow - Your Shield Against Cyber Attacks",
+          "startDate": "2024-07-17",
+          "description": "Discover managed detection and response in action to enhance your cybersecurity posture."
+        },
+        {
+          "@type": "Event",
+          "name": "Sophos Technical Workshop",
+          "startDate": "2024-08-08",
+          "description": "Hands-on workshop on deploying and managing advanced Sophos cybersecurity tools."
+        }
+      ]
     }
   },
 

@@ -1,5 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './K7Security.css';
@@ -72,8 +74,17 @@ const k7UseCases = [
 
 export default function K7Security() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerK7Security');
   return (
     <div className="k7-page k7v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── K7 Premium Hero ── */}
       <section className="k7v2-hero">
@@ -87,15 +98,15 @@ export default function K7Security() {
           <div className="k7v2-left" data-aos="fade-right" data-aos-duration="900">
 
             <h1 className="k7v2-headline">
-              K7 Antivirus &amp;<br />
-              Endpoint Security<br />
-              <span className="k7v2-headline-accent">Solutions Provider</span>
+              Leading K7 Security<br />
+              Solutions<br />
+              <span className="k7v2-headline-accent">Partner</span>
             </h1>
             <div className="k7v2-headline-rule"></div>
 
             <p className="k7v2-desc">
               AI-driven threat detection, real-time endpoint protection, and centralized
-              security management — delivered by{' '}
+              security management - delivered by{' '}
               <a href="/contact-us" className="k7v2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -159,7 +170,7 @@ export default function K7Security() {
 
           </div>
 
-          {/* RIGHT — Product Showcase */}
+          {/* RIGHT - Product Showcase */}
           <div className="k7v2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
 
             <div className="k7v2-product-glow" aria-hidden="true"></div>
@@ -201,7 +212,7 @@ export default function K7Security() {
       
       {/* Use Cases Slider */}
 
-      {/* Career CTA — above Use Cases */}
+      {/* Career CTA - above Use Cases */}
       <section className="career-cta-section partner-cta-upgraded" data-aos="fade-up" data-aos-duration="900">
         <div className="career-cta-container">
           <div className="partner-cta-eyebrow"><i className="fas fa-bug"></i><span>FREE SECURITY CONSULT</span></div>
@@ -210,10 +221,10 @@ export default function K7Security() {
           <div className="partner-cta-points">
             <div className="partner-cta-point"><i className="fas fa-search"></i><span>Top three malware risks in your current environment</span></div>
             <div className="partner-cta-point"><i className="fas fa-bolt"></i><span>Quick wins to protect devices without slowing them down</span></div>
-            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
+            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate - no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>
@@ -311,7 +322,7 @@ export default function K7Security() {
               </div>
 
               <p className="greythr-offer-desc">
-                Experience enterprise-grade endpoint security and antivirus protection firsthand — zero risk, zero commitment. Our team will deploy a complete proof of concept tailored to your environment.
+                Experience enterprise-grade endpoint security and antivirus protection firsthand - zero risk, zero commitment. Our team will deploy a complete proof of concept tailored to your environment.
               </p>
 
               {/* Feature Grid */}

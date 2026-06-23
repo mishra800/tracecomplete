@@ -63,3 +63,28 @@
     color: #fff !important;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
 }
+
+/* ── Services Carousel — prevent owl-loading opacity:0 flash ─────────────────
+   Owl adds .owl-loading (opacity:0) while initialising. On SPA first-load
+   the carousel can get stuck in that state if the init script loses the race.
+   We force the container and its children visible so content is never hidden. */
+.portfolio-two__carousel,
+.portfolio-two__carousel.owl-loading,
+.portfolio-two__carousel.owl-hidden {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Once owl finishes loading the .owl-loaded class is applied; keep it visible */
+.portfolio-two__carousel.owl-loaded {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Ensure the items inside are never hidden before owl wraps them */
+.portfolio-two__carousel > .item,
+.portfolio-two__carousel > div {
+    opacity: 1 !important;
+    visibility: visible !important;
+}

@@ -1,5 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Accops.css';
@@ -14,8 +16,17 @@ const accopsUseCases = [
 
 export default function Accops() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerAccops');
   return (
     <div className="accops-page acp-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- HERO -- */}
       <section className="acp2-hero">
@@ -47,9 +58,9 @@ export default function Accops() {
 
           <div className="acp2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="acp2-headline">
-              Accops Zero Trust &amp; VDI<br />
-              Solutions for<br />
-              <span className="acp2-headline-accent">Secure Modern Enterprises</span>
+              Leading Accops Partner for<br />
+              Secure Digital<br />
+              <span className="acp2-headline-accent">Workspaces</span>
             </h1>
             <div className="acp2-headline-rule"></div>
             <p className="acp2-desc">
@@ -125,7 +136,7 @@ export default function Accops() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

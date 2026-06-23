@@ -2836,3 +2836,35 @@
 /*--------------------------------------------------------------
 # End
 --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Editor Content Heading Styles
+--------------------------------------------------------------*/
+/* Ensure headings in blog content editor are visible with black color */
+.blog-one__content h1,
+.blog-one__content h2,
+.blog-one__content h3,
+.blog-two__content h1,
+.blog-two__content h2,
+.blog-two__content h3,
+.blog-two__content-two h1,
+.blog-two__content-two h2,
+.blog-two__content-two h3,
+.blog-list__content h1,
+.blog-list__content h2,
+.blog-list__content h3 {
+    color: #000000 !important;
+}
+
+/* For any general content areas with rich text editor */
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.editor-content h1,
+.editor-content h2,
+.editor-content h3,
+[contenteditable="true"] h1,
+[contenteditable="true"] h2,
+[contenteditable="true"] h3 {
+    color: #000000 !important;
+}

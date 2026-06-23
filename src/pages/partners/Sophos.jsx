@@ -1,5 +1,7 @@
 ﻿import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Sophos.css';
@@ -32,6 +34,7 @@ export default function Sophos({ showSophosAward }) {
   const canvasRef = useRef(null);
   useSophosScrollReveal();
   useAwardsSlider();
+  const seoData = getSEOData('partnerSophos');
 
   // ── POC Carousel ──────────────────────────────────────────────────────────
   useEffect(() => {
@@ -269,6 +272,14 @@ export default function Sophos({ showSophosAward }) {
 
   return (
     <div className="sophos-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
       {showSophosAward && (
         <section className="sophos-award-highlight">
           {/* Animated Background Canvas - Only for this section */}
@@ -408,7 +419,7 @@ export default function Sophos({ showSophosAward }) {
             </ul>
 
             <div className="aruba-cta-btn-wrapper">
-              <a href="tel:7032224513" className="aruba-cta-btn">
+              <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="aruba-cta-btn">
                 <span className="aruba-cta-btn-text">Book Your Free Strategy Call</span>
                 <i className="fas fa-arrow-right"></i>
               </a>
@@ -639,7 +650,7 @@ export default function Sophos({ showSophosAward }) {
               </div>
 
               <p className="aruba-poc-intro-text">
-                Experience the power of Sophos cybersecurity firsthand &mdash; zero risk, zero commitment.
+                Experience the power of Sophos cybersecurity firsthand - zero risk, zero commitment.
                 Our team will set up a complete proof of concept tailored to your environment so
                 you can see the results before you invest.
               </p>
@@ -694,7 +705,7 @@ export default function Sophos({ showSophosAward }) {
               </div>
 
               <p className="aruba-closing-text">
-                Let's build a <span className="aruba-highlight">smarter, stronger</span> security posture &mdash; together.
+                Let's build a <span className="aruba-highlight">smarter, stronger</span> security posture - together.
               </p>
             </div>
           </div>

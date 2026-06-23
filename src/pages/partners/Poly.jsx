@@ -1,6 +1,9 @@
-import React from 'react';
+﻿import React from 'react';
 
 import { Link } from 'react-router-dom';
+
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 
 import UseCaseSlider from '../../components/UseCaseSlider';
 
@@ -33,10 +36,20 @@ const polyUseCases = [
 export default function Poly() {
 
   useAwardsSlider();
+  const seoData = getSEOData('partnerPoly');
 
   return (
 
     <div className="poly-page poly2-page">
+
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
 
 
@@ -60,11 +73,11 @@ export default function Poly() {
 
             <h1 className="poly2-headline">
 
-              Poly Collaboration &amp;<br />
+              Premier Poly Collaboration<br />
 
-              Communication<br />
+              &amp; Communication Solutions<br />
 
-              <span className="poly2-headline-accent">Solutions Provider</span>
+              <span className="poly2-headline-accent">Partner</span>
 
             </h1>
 
@@ -72,7 +85,7 @@ export default function Poly() {
 
             <p className="poly2-desc">
 
-              Professional headsets, video conferencing, and hybrid workplace communication solutions  delivered by{' '}
+              Professional headsets, video conferencing, and id workplace communication solutions - delivered by{' '}
 
               <a href="/contact-us" className="poly2-desc-link">Trace Network &amp; Engineering.</a>
 
@@ -264,7 +277,7 @@ export default function Poly() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

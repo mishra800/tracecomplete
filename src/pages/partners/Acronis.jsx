@@ -1,5 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Acronis.css';
@@ -15,8 +17,17 @@ const acronisUseCases = [
 ];
 export default function Acronis() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerAcronis');
   return (
     <div className="acronis-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
           {/* Acronis Hero */}
           <section className="acronis-hero">
@@ -58,7 +69,7 @@ export default function Acronis() {
           <section className="acronis-features-section">
             <div className="container">
               <div className="acronis-section-header" data-aos="fade-up">
-                <h2><i className="fas fa-key header-icon-glow"></i> Top Reasons to Choose Acronis</h2>
+                <h2><i className="fas fa-key header-icon-glow"></i>Top Reasons to Choose Acronis</h2>
                 <p>Complete cyber protection for modern enterprises - all in one platform</p>
               </div>
               <div className="acronis-features-grid">
@@ -78,7 +89,7 @@ export default function Acronis() {
                   <p>Protect physical servers, virtual machines, cloud workloads, laptops, desktops, and Microsoft 365 environments with fast, reliable recovery.</p>
                 </div>
                 <div className="acronis-feature-card" data-aos="fade-up" data-aos-delay="250">
-                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>Â</div>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i></div>
                   <h3>Centralized Management</h3>
                   <p>Manage backup, endpoint protection, patching, and monitoring through a single centralized console - simplifying IT operations across your organization.</p>
                 </div>
@@ -98,6 +109,26 @@ export default function Acronis() {
 
           
           
+          {/* CTA Section */}
+          <section className="career-cta-section partner-cta-upgraded" data-aos="fade-up" data-aos-duration="900">
+            <div className="career-cta-container">
+              <div className="partner-cta-eyebrow"><i className="fas fa-shield-alt"></i><span>FREE CYBER PROTECTION CONSULT</span></div>
+              <h2 className="career-cta-title partner-cta-title">Ready to Build a Future-Ready IT Environment?</h2>
+              <p className="career-cta-text partner-cta-subtext">Speak with a senior consultant today. In 30 minutes you'll know:</p>
+              <div className="partner-cta-points">
+                <div className="partner-cta-point"><i className="fas fa-search"></i><span>The top three risks hiding in your current stack</span></div>
+                <div className="partner-cta-point"><i className="fas fa-bolt"></i><span>Quick wins that boost performance without new hardware</span></div>
+                <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline &amp; cost estimate - no obligations</span></div>
+              </div>
+              <div className="partner-cta-actions">
+                <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i>Book Your Free Strategy Call</a>
+                <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i>Send Us a Message</a>
+              </div>
+            </div>
+            <div className="partner-cta-glow-l" aria-hidden="true"></div>
+            <div className="partner-cta-glow-r" aria-hidden="true"></div>
+          </section>
+
           {/* Use Cases - Professional Slider */}
           <UseCaseSlider
             useCases={acronisUseCases}

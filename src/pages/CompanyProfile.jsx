@@ -198,7 +198,7 @@ export default function CompanyProfile() {
                       <h5>Mission </h5>
                       <p>We deliver secure, high-availability IT networking, cloud and cybersecurity
                         solutions driven by integrity, innovation and customer-first collaboration
-                        to maximize our clientsâ€™ business outcomes and provide seamless customer
+                        to maximize our clients' business outcomes and provide seamless customer
                         support to our 1000+ clients across diverse industries. </p>
                     </div>
                   </li>
@@ -315,8 +315,9 @@ export default function CompanyProfile() {
                     width="100%"
                     height="250"
                     style={{ border: 0, borderRadius: "15px" }}
-                    allowFullScreen=""
+                    allowFullScreen
                     loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
                     title={branch.name}
                   ></iframe>
                   <div className="unique-branch-name">{branch.name}</div>
@@ -533,14 +534,6 @@ export default function CompanyProfile() {
           <div className="premium-card-grid">
             <div className="premium-service-card">
               <div className="premium-icon-wrapper">
-                <img alt="24x7 security operations center monitoring services" src="/assets/images/24-hours.png" title="24x7 SOC monitoring and incident response" />
-              </div>
-              <p><strong>24Ã—7 SOC &amp; Seamless Support</strong>
-                Continuous monitoring, rapid incident response, and proactive tuning by certified analysts.
-              </p>
-            </div>
-            <div className="premium-service-card">
-              <div className="premium-icon-wrapper">
                 <img alt="certified multi vendor cybersecurity and networking experts" src="/assets/images/certified.png" title="certified multi vendor IT security expertise" />
               </div>
               <p><strong>Multi-vendor, Certified Expertise</strong>
@@ -552,7 +545,7 @@ export default function CompanyProfile() {
               <div className="premium-icon-wrapper">
                 <img alt="20 years experience in cybersecurity and enterprise networking" src="/assets/images/leadership.png" title="experienced cybersecurity and networking solutions provider" />
               </div>
-              <p><strong>20 Years of Leadership</strong>
+              <p><strong>20+ Years of Leadership</strong>
                 Proven security and networking solutions for top institutions and data centers across South
                 India.
               </p>
@@ -612,7 +605,7 @@ export default function CompanyProfile() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

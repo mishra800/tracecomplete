@@ -77,7 +77,10 @@ export default function CloudPenetrationTesting() {
 <div className="services-details__need-help-bdr"></div>
 <p className="services-details__need-help-title">Need Help?</p>
 <p className="services-details__need-help-number">
-<a href="tel:+917032224513" title="contact us">7032224513</a>
+<a href="tel:04042705599" title="call us">040 4270 5599</a>
+</p>
+<p className="services-details__need-help-number" style={{marginTop: '8px'}}>
+<a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" title="WhatsApp support" style={{color: '#25D366'}}><i className="fab fa-whatsapp"></i> WhatsApp Support</a>
 </p>
 </div>
 </div>
@@ -346,7 +349,8 @@ export default function CloudPenetrationTesting() {
 <div className="icon"><span className="icon-customer-service-headset"></span></div>
 <div className="content">
 <span>Get Support</span>
-<p><a href="tel:+917032224513" title="contact us">7032224513</a></p>
+<p><a href="tel:04042705599" title="call us">040 4270 5599</a></p>
+<p style={{marginTop: '6px'}}><a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" style={{color: '#25D366'}}><i className="fab fa-whatsapp"></i> WhatsApp Support</a></p>
 </div>
 </div>
 <div className="faq-two__btn-box">
@@ -408,16 +412,23 @@ export default function CloudPenetrationTesting() {
         <div className="career-cta-container">
           <h2 className="career-cta-title">Ready to Build a Future-Ready IT Environment?</h2>
           <p className="career-cta-text">
-            Speak with a senior consultant today. In 30 minutes you'll know:
-            <br /><br />
-            • The top three risks hiding in your current stack<br />
-            • Quick wins that boost performance without new hardware<br />
-            • An exact timeline & cost estimate—no obligations
+            <span className="cta-intro">Speak with a senior consultant today. In 30 minutes you'll know:</span>
+            <span className="cta-bullets">
+              • The top three risks hiding in your current stack<br />
+              • Quick wins that boost performance without new hardware<br />
+              • An exact timeline &amp; cost estimate—no obligations
+            </span>
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
-              <span className="btn-text">Book Your Free Strategy Call </span>
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
+              <span className="btn-text">040 4270 5599 — Book Your Free Strategy Call</span>
+              <span className="btn-arrow"></span>
+            </a>
+          </div>
+          <div className="about-two__btn-box" style={{marginTop: '14px'}}>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="btn-get-started" style={{backgroundColor: '#25D366', borderColor: '#25D366'}}>
+              <span className="btn-text"><i className="fab fa-whatsapp"></i> WhatsApp Support</span>
               <span className="btn-arrow"></span>
             </a>
           </div>

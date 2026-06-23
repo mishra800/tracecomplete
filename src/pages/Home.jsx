@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import SEO from "../components/SEO";
 import { getSEOData } from "../config/seoConfig";
 import { useOdometer } from "../hooks/useOdometer";
@@ -7,9 +8,47 @@ import Partners from "../components/Partners";
 
 export default function Home() {
   const seoData = getSEOData('home');
-  
+  const navigate = useNavigate();
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name?.value?.trim();
+    const email = form.email?.value?.trim();
+    const phone = form.Phone?.value?.trim();
+    const message = form.message?.value?.trim();
+    if (!name || !email || !phone || !message) return;
+    navigate('/thank-you');
+  };
+
   useEffect(() => {
     console.log('Home component mounted');
+
+    // ── Swiper hero slider init ──────────────────────────────────────────────
+    // `thmSwiperInit` (from script.js) only runs on window.load, which has
+    // already fired on SPA navigations. We call it explicitly here, first
+    // destroying any stale Swiper instance so it cleanly reinitialises.
+    const initSwiper = () => {
+      if (typeof window.Swiper === 'undefined' || typeof window.$ === 'undefined') return;
+      const $slider = window.$('.thm-swiper__slider');
+      if (!$slider.length) return;
+
+      $slider.each(function () {
+        const el = this;
+        // Destroy existing instance if present
+        if (el.swiper) {
+          el.swiper.destroy(true, true);
+        }
+        const options = window.$(el).data('swiper-options');
+        new window.Swiper(el, options);
+      });
+    };
+
+    // Try immediately, then retry to handle slow script loading
+    initSwiper();
+    const t1 = setTimeout(initSwiper, 300);
+    const t2 = setTimeout(initSwiper, 800);
+    const t3 = setTimeout(initSwiper, 1500);
 
     // Re-initialize owl carousels and interactions after React renders
     const initCarousels = () => {
@@ -45,6 +84,8 @@ export default function Home() {
       // Portfolio Two (Services) Carousel
       const $portfolioCarousel = $(".portfolio-two__carousel");
       if ($portfolioCarousel.length && !$portfolioCarousel.hasClass('owl-loaded')) {
+        // Remove any stuck owl-loading / owl-hidden class before init
+        $portfolioCarousel.removeClass('owl-loading owl-hidden');
         $portfolioCarousel.owlCarousel({
           loop: true,
           margin: 30,
@@ -128,10 +169,28 @@ export default function Home() {
         });
       }
     };
-    // Initialize carousels with delays
-    setTimeout(initCarousels, 300);
-    setTimeout(initCarousels, 800);
-    setTimeout(initCarousels, 1500);
+    // Poll until jQuery + Owl are ready, then initialise carousels.
+    // Fixed timeouts miss the window when scripts load slowly on first SPA visit.
+    let carouselAttempts = 0;
+    const carouselInterval = setInterval(() => {
+      carouselAttempts++;
+      if (typeof window.$ !== 'undefined' && typeof window.$.fn.owlCarousel !== 'undefined') {
+        initCarousels();
+        // Run once more after a short delay to catch any late-rendering elements
+        setTimeout(initCarousels, 400);
+        clearInterval(carouselInterval);
+      } else if (carouselAttempts > 40) {
+        // Give up after ~8 seconds (40 × 200ms)
+        clearInterval(carouselInterval);
+      }
+    }, 200);
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearInterval(carouselInterval);
+    };
   }, []);
 
   // Initialize Odometer for counters
@@ -455,7 +514,7 @@ export default function Home() {
       </section>
 
       {/* Premium Cards Section */}
-      <section className="premium-cards-section pt-2">
+      <section className="premium-cards-section home-premium-cards pt-2">
         <div className="premium-container">
           <div className="section-title text-center pb-4">
             <h2 className="section-title__title">
@@ -463,15 +522,6 @@ export default function Home() {
             </h2>
           </div>
           <div className="premium-card-grid">
-            <div className="premium-service-card">
-              <div className="premium-icon-wrapper">
-                <img src="/assets/images/24-hours.png" style={{width: '55px'}} alt="24-hours icon" title="24-hours icon" />
-              </div>
-              <p><strong>24×7 SOC & Seamless Support</strong>
-                Get round-the-clock protection with our Security Operations Centre (SOC), Network Operations Center(NOC) — delivering continuous monitoring, rapid incident response, and proactive threat detection by certified cybersecurity analysts.
-              </p>
-            </div>
-
             <div className="premium-service-card">
               <div className="premium-icon-wrapper">
                 <img src="/assets/images/certified.png" alt="certified" title="certified" />
@@ -1004,7 +1054,7 @@ export default function Home() {
         <div className="services-two__shape-1"></div>
         <div className="container">
           <div className="services-two__top">
-            <div className="section-title text-left">
+            <div className="section-title text-center">
               <div className="section-title__tagline-box">
                 <div className="section-title__tagline-shape-1"></div>
                 <span className="section-title__tagline" title="Our Services">Our Services</span>
@@ -1017,121 +1067,78 @@ export default function Home() {
           </div>
 
           <div className="services-two__bottom">
-            <div className="services-two__services-list-redesigned">
+            <div className="svc-rows-wrap">
 
-              {/* Cybersecurity */}
-              <div className="services-two__services-list-single services-two__services-list-single-1 mb-5 pb-4" style={{borderBottom: '1px solid rgba(255,255,255,0.1)'}}>
-                <div className="row align-items-center g-3">
-                  <div className="col-xl-1 col-lg-1 col-md-2 col-2">
-                    <div className="services-two__count-and-title">
-                      <div className="services-two__count"></div>
-                    </div>
+              {/* ── Cybersecurity ── */}
+              <div className="svc-row">
+                <div className="svc-row__left">
+                  <span className="svc-row__num">01</span>
+                  <h3 className="svc-row__title">
+                    <a href="/networksecurity" title="Cybersecurity">Cybersecurity</a>
+                  </h3>
+                  <div className="svc-row__img">
+                    <img src="/assets/images/cybersecurity.jpg" alt="Cybersecurity" title="Cybersecurity" />
                   </div>
-                  <div className="col-xl-2 col-lg-2 col-md-4 col-10">
-                    <h3 className="services-two__title mb-0">
-                      <a href="/networksecurity" title="Cybersecurity">Cybersecurity</a>
-                    </h3>
-                  </div>
-                  <div className="col-xl-2 col-lg-2 col-md-6 col-12">
-                    <div className="services-two__image-box">
-                      <img src="/assets/images/cybersecurity.jpg" alt="Cybersecurity" title="Cybersecurity" className="img-fluid rounded" style={{width: '100%', height: '80px', objectFit: 'cover', display: 'block'}} />
-                    </div>
-                  </div>
-                  <div className="col-xl-7 col-lg-7 col-md-12">
-                    <div className="services-two__service-list-box">
-                      <div className="row g-2">
-                        <div className="col-md-4">
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Vulnerability Assessment & Penetration Testing</p>
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Endpoint Security & Centralised Management</p>
-                        </div>
-                        <div className="col-md-4">
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Network Security & Firewall Protection</p>
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Incident Response & Recovery</p>
-                        </div>
-                        <div className="col-md-4">
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Data Encryption, Privacy & Compliance</p>
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Continuous Security Monitoring</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                </div>
+                <div className="svc-row__right">
+                  <ul className="svc-row__list">
+                    <li><span className="icon-tick-inside-circle"></span>Vulnerability Assessment &amp; Penetration Testing (VAPT) Services</li>
+                    <li><span className="icon-tick-inside-circle"></span>Endpoint Security &amp; Device Management Solutions</li>
+                    <li><span className="icon-tick-inside-circle"></span>Network Security &amp; Next-Generation Firewall Solutions</li>
+                    <li><span className="icon-tick-inside-circle"></span>Cyber Incident Response &amp; Disaster Recovery Services</li>
+                    <li><span className="icon-tick-inside-circle"></span>Data Security, Encryption &amp; Compliance Management</li>
+                    <li><span className="icon-tick-inside-circle"></span>24x7 Security Monitoring &amp; Threat Detection Integration</li>
+                  </ul>
                 </div>
               </div>
 
-              {/* Integration */}
-              <div className="services-two__services-list-single mb-5 pb-4" style={{borderBottom: '1px solid rgba(255,255,255,0.1)'}}>
-                <div className="row align-items-center g-3">
-                  <div className="col-xl-1 col-lg-1 col-md-2 col-2">
-                    <div className="services-two__count-and-title">
-                      <div className="services-two__count"></div>
-                    </div>
-                  </div>
-                  <div className="col-xl-2 col-lg-2 col-md-4 col-10">
-                    <h3 className="services-two__title mb-0">
-                      <a href="/integration" title="Integration">Integration</a>
-                    </h3>
-                  </div>
-                  <div className="col-xl-2 col-lg-2 col-md-6 col-12">
-                    <div className="services-two__image-box">
-                      <img src="/assets/images/integration.jpg" alt="Integration" title="Integration" className="img-fluid rounded" style={{width: '100%', height: '80px', objectFit: 'cover', display: 'block'}} />
-                    </div>
-                  </div>
-                  <div className="col-xl-7 col-lg-7 col-md-12">
-                    <div className="services-two__service-list-box">
-                      <div className="row g-2">
-                        <div className="col-md-4">
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>System & Application Integration</p>
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>API Development & Integration</p>
-                        </div>
-                        <div className="col-md-4">
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>ERP & CRM System Integration</p>
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Data Migration & Synchronization</p>
-                        </div>
-                        <div className="col-md-4">
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Business Workflow Automation Software</p>
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Custom Middleware & AI Integration</p>
-                        </div>
-                      </div>
-                    </div>
+              <div className="svc-row__separator"></div>
+
+              {/* ── Integration ── */}
+              <div className="svc-row">
+                <div className="svc-row__left">
+                  <span className="svc-row__num">02</span>
+                  <h3 className="svc-row__title">
+                    <a href="/integration" title="Integration">Integration</a>
+                  </h3>
+                  <div className="svc-row__img">
+                    <img src="/assets/images/integration.jpg" alt="Integration" title="Integration" />
                   </div>
                 </div>
+                <div className="svc-row__right">
+                  <ul className="svc-row__list">
+                    <li><span className="icon-tick-inside-circle"></span>Enterprise System &amp; Application Integration</li>
+                    <li><span className="icon-tick-inside-circle"></span>API Development, Integration &amp; Management</li>
+                    <li><span className="icon-tick-inside-circle"></span>ERP, CRM &amp; Business Application Integration</li>
+                    <li><span className="icon-tick-inside-circle"></span>Data Migration, Synchronization &amp; Modernization</li>
+                    <li><span className="icon-tick-inside-circle"></span>Business Process &amp; Workflow Automation Solutions</li>
+                    <li><span className="icon-tick-inside-circle"></span>Custom Middleware Development &amp; AI Integration Services</li>
+                  </ul>
+                </div>
               </div>
-              {/* Cloud */}
-              <div className="services-two__services-list-single">
-                <div className="row align-items-center g-3">
-                  <div className="col-xl-1 col-lg-1 col-md-2 col-2">
-                    <div className="services-two__count-and-title">
-                      <div className="services-two__count"></div>
-                    </div>
+
+              <div className="svc-row__separator"></div>
+
+              {/* ── Cloud ── */}
+              <div className="svc-row">
+                <div className="svc-row__left">
+                  <span className="svc-row__num">03</span>
+                  <h3 className="svc-row__title">
+                    <a href="/cloud" title="Cloud">Cloud</a>
+                  </h3>
+                  <div className="svc-row__img">
+                    <img src="/assets/images/cloud.jpg" alt="Cloud" title="Cloud" />
                   </div>
-                  <div className="col-xl-2 col-lg-2 col-md-4 col-10">
-                    <h3 className="services-two__title mb-0">
-                      <a href="/cloud" title="Cloud">Cloud</a>
-                    </h3>
-                  </div>
-                  <div className="col-xl-2 col-lg-2 col-md-6 col-12">
-                    <div className="services-two__image-box">
-                      <img src="/assets/images/cloud.jpg" alt="Cloud" title="Cloud" className="img-fluid rounded" style={{width: '100%', height: '80px', objectFit: 'cover', display: 'block'}} />
-                    </div>
-                  </div>
-                  <div className="col-xl-7 col-lg-7 col-md-12">
-                    <div className="services-two__service-list-box">
-                      <div className="row g-2">
-                        <div className="col-md-4">
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Cloud Migration & Deployment</p>
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>IaaS & PaaS Service Providers</p>
-                        </div>
-                        <div className="col-md-4">
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Managed Cloud VPS Hosting</p>
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Cloud Data & File Management Systems</p>
-                        </div>
-                        <div className="col-md-4">
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Cloud Security & Compliance</p>
-                          <p style={{marginBottom: '10px'}}><span className="icon-plus"></span>Backup & Disaster Recovery Solutions</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                </div>
+                <div className="svc-row__right">
+                  <ul className="svc-row__list">
+                    <li><span className="icon-tick-inside-circle"></span>Cloud Migration, Deployment &amp; Modernization Services</li>
+                    <li><span className="icon-tick-inside-circle"></span>Infrastructure as a Service (IaaS) &amp; Platform as a Service (PaaS) Solutions</li>
+                    <li><span className="icon-tick-inside-circle"></span>Managed Cloud Hosting &amp; Virtual Private Servers (VPS)</li>
+                    <li><span className="icon-tick-inside-circle"></span>Cloud Storage, Data Management &amp; File Sharing Solutions</li>
+                    <li><span className="icon-tick-inside-circle"></span>Cloud Security, Governance &amp; Compliance Services</li>
+                    <li><span className="icon-tick-inside-circle"></span>Cloud Backup &amp; Disaster Recovery (DR) Solutions</li>
+                  </ul>
                 </div>
               </div>
 
@@ -1203,7 +1210,7 @@ export default function Home() {
             </div>
             <div className="col-xl-6">
               <div className="contact-two__right" data-wow-delay="100ms" data-wow-duration="2500ms">
-                <form id="contactForm" className="contact-form-validated contact-one__form">
+                <form id="contactForm" className="contact-form-validated contact-one__form" onSubmit={handleContactSubmit}>
                   <input type="hidden" name="access_key" value="9589aa5c-bd8c-4789-9109-e7b12282602f" />
 
                   <div className="row">
@@ -1491,7 +1498,7 @@ export default function Home() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

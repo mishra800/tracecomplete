@@ -1,5 +1,7 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Microsoft365.css';
@@ -15,8 +17,17 @@ const microsoft365UseCases = [
 
 export default function Microsoft365() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerMicrosoft365');
   return (
     <div className="m365-page m365-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- Hero -- */}
       <section className="m365-hero">
@@ -28,14 +39,14 @@ export default function Microsoft365() {
           {/* LEFT */}
           <div className="m365-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="m365-headline">
-              Microsoft 365<br />
+              Leading Microsoft 365<br />
               Cloud Solutions<br />
-              <span className="m365-headline-accent">Provider</span>
+              <span className="m365-headline-accent">Partner</span>
             </h1>
             <div className="m365-headline-rule"></div>
             <p className="m365-desc">
               Secure communication, cloud-based collaboration, endpoint management, and
-              business productivity tools for hybrid work � delivered by{' '}
+              business productivity tools for hybrid work - delivered by{' '}
               <a href="/contact-us" className="m365-desc-link">Trace Network &amp; Engineering.</a>
             </p>
             <div className="m365-feature-row">
@@ -164,7 +175,7 @@ export default function Microsoft365() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>
@@ -251,9 +262,9 @@ export default function Microsoft365() {
             <div className="greythr-offer-glow-right" aria-hidden="true"></div>
             <div className="greythr-offer-stars" aria-hidden="true">
               <span className="gt-star gt-star-1">★</span>
-              <span className="gt-star gt-star-2">✦</span>
+              <span className="gt-star gt-star-2">-</span>
               <span className="gt-star gt-star-3">★</span>
-              <span className="gt-star gt-star-4">✦</span>
+              <span className="gt-star gt-star-4">-</span>
             </div>
             <div className="greythr-offer-content sify-offer-content-full">
               <div className="greythr-offer-badge"><i className="fas fa-gift"></i> SPECIAL OFFER</div>

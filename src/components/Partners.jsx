@@ -2,13 +2,10 @@ import "./Partners.css";
 
 // Partner logo data — upward-scrolling column
 const partnersColumnOne = [
-  { src: "/assets/images/partners/42-Gears.jpg", alt: "42 Gears", title: "42 Gears" },
   { src: "/assets/images/partners/ACCOPS.jpg", alt: "Accops", title: "Accops" },
   { src: "/assets/images/partners/APPLE-2.jpg", alt: "Apple", title: "Apple" },
   { src: "/assets/images/partners/ARCON.jpg", alt: "Arcon", title: "Arcon" },
-  { src: "/assets/images/partners/Cloud-defense.jpg", alt: "Cloud Defense", title: "Cloud Defense" },
   { src: "/assets/images/partners/COSOSYS-2.jpg", alt: "CoSoSys", title: "CoSoSys" },
-  { src: "/assets/images/partners/CYBERARK.jpg", alt: "CyberArk", title: "CyberArk" },
   { src: "/assets/images/partners/DELL-2.jpg", alt: "Dell", title: "Dell" },
   { src: "/assets/images/partners/Forcepoint.jpg", alt: "Forcepoint", title: "Forcepoint" },
   { src: "/assets/images/partners/GFI-SOFTWARE.jpg", alt: "GFI Software", title: "GFI Software" },
@@ -23,17 +20,18 @@ const partnersColumnOne = [
   { src: "/assets/images/partners/MICROSOFT-365-2.jpg", alt: "Microsoft 365", title: "Microsoft 365" },
   { src: "/assets/images/partners/MICROSOFT-AZURE.jpg", alt: "Microsoft Azure", title: "Microsoft Azure" },
   { src: "/assets/images/partners/MOTADATA.jpg", alt: "Motadata", title: "Motadata" },
+  { src: "/assets/home1.png", alt: "OWL Labs", title: "OWL Labs", className: "logo-owl-labs" },
+  { src: "/assets/home2.png", alt: "Halofort", title: "Halofort", className: "logo-halofort" },
 ];
 
 // Partner logo data — downward-scrolling column
 const partnersColumnTwo = [
   { src: "/assets/images/partners/NETSKOPE.jpg", alt: "Netskope", title: "Netskope" },
   { src: "/assets/images/partners/nutanix.png", alt: "Nutanix", title: "Nutanix", style: { backgroundColor: "white" } },
-  { src: "/assets/images/partners/One-identity.jpg", alt: "One Identity", title: "One Identity" },
   { src: "/assets/images/partners/Palo-Alto-Networks-2.jpg", alt: "Palo Alto Networks", title: "Palo Alto Networks" },
   { src: "/assets/images/partners/PEOPLE-LINK.jpg", alt: "PeopleLink", title: "PeopleLink" },
   { src: "/assets/images/partners/POPY.jpg", alt: "Poly", title: "Poly" },
-  { src: "/assets/images/partners/PRTG.jpg", alt: "PRTG Network Monitor", title: "PRTG Network Monitor" },
+
   { src: "/assets/images/partners/QUALYS.jpg", alt: "Qualys", title: "Qualys" },
   { src: "/assets/images/partners/Quantum-networks.jpg", alt: "Quantum Networks", title: "Quantum Networks" },
   { src: "/assets/images/partners/Sapphire-IMS.jpg", alt: "Sapphire IMS", title: "Sapphire IMS" },
@@ -42,12 +40,10 @@ const partnersColumnTwo = [
   { src: "/assets/images/partners/SOLARWINDS.jpg", alt: "SolarWinds", title: "SolarWinds" },
   { src: "/assets/images/partners/SOPHOS.jpg", alt: "Sophos", title: "Sophos" },
   { src: "/assets/images/partners/TATA-ISP.jpg", alt: "Tata ISP", title: "Tata ISP" },
-  { src: "/assets/images/partners/TCP-WAVE.jpg", alt: "TCPWave", title: "TCPWave" },
   { src: "/assets/images/partners/TENABLE-2.jpg", alt: "Tenable", title: "Tenable" },
-  { src: "/assets/images/partners/Thrivedx.jpg", alt: "ThriveDX", title: "ThriveDX" },
   { src: "/assets/images/partners/VEEAM.jpg", alt: "Veeam", title: "Veeam" },
-  { src: "/assets/images/partners/VERITAS.jpg", alt: "Veritas", title: "Veritas" },
-  { src: "/assets/images/partners/Vmware.jpg", alt: "VMware", title: "VMware" },
+  { src: "/assets/home3.png", alt: "Partner 3", title: "Partner 3" },
+  { src: "/assets/home4.jpg", alt: "Partner 4", title: "Partner 4" },
 ];
 
 export default function Partners() {
@@ -95,6 +91,7 @@ export default function Partners() {
                   alt={partner.alt}
                   title={partner.title}
                   style={partner.style || {}}
+                  className={partner.className || ""}
                 />
               ))}
             </div>
@@ -111,6 +108,7 @@ export default function Partners() {
                   alt={partner.alt}
                   title={partner.title}
                   style={partner.style || {}}
+                  className={partner.className || ""}
                 />
               ))}
             </div>

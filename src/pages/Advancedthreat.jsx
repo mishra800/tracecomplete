@@ -143,7 +143,6 @@ export default function Advancedthreat() {
                 <h2 className="section-title__title">Why Leading<span> Brands</span> Choose<span> Trace</span></h2>
               </div>
               <div className="premium-card-grid">
-                <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/24-hours.png" /></div><p><strong>24×7 SOC &amp; Seamless Support</strong> Continuous monitoring, rapid incident response, and proactive tuning by certified analysts.</p></div>
                 <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/certified.png" /></div><p><strong>Multi‑vendor, Certified Expertise</strong> With 40+ Global OEM Partnerships, we are bringing you future-proof solutions matched to your exact needs.</p></div>
                 <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/leadership.png" /></div><p><strong>20 Years of Leadership</strong> Proven security and networking solutions for top institutions and data centers across South India.</p></div>
                 <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/luxury.png" /></div><p><strong>Customer‑First, Value‑Driven</strong> Right-sized solutions that deliver maximum protection at the lowest total cost of ownership.</p></div>
@@ -168,7 +167,7 @@ export default function Advancedthreat() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

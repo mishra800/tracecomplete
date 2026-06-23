@@ -4,6 +4,9 @@ import 'aos/dist/aos.css';
 
 export const useAOS = () => {
   useEffect(() => {
+    // Always re-init so SPA navigations pick up new DOM elements.
+    // refreshHard() rescans the entire DOM — unlike refresh() which only
+    // updates positions of already-known elements.
     AOS.init({
       duration: 1000,
       once: true,
@@ -11,11 +14,11 @@ export const useAOS = () => {
       easing: 'ease-in-out',
     });
 
-    // Refresh AOS on component mount
-    AOS.refresh();
+    AOS.refreshHard();
 
     return () => {
-      AOS.refresh();
+      // Rescan on unmount so the next route's elements start clean
+      AOS.refreshHard();
     };
-  }, []);
+  });  // no dependency array — runs after every render, matching route changes
 };

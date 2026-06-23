@@ -1,5 +1,7 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Apple.css';
@@ -15,8 +17,17 @@ const appleUseCases = [
 
 export default function Apple() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerApple');
   return (
     <div className="apple-page apl-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* ── HERO ── */}
       <section className="apl2-hero">
@@ -26,9 +37,9 @@ export default function Apple() {
 
           <div className="apl2-left" data-aos="fade-right" data-aos-duration="900">
             <h1 className="apl2-headline">
-              Apple MacBook, iMac<br />
-              &amp; Mac Solutions for<br />
-              <span className="apl2-headline-accent">Premium Modern Enterprises</span>
+              Enterprise Apple Device<br />
+              &amp; Productivity Solutions<br />
+              <span className="apl2-headline-accent">Provider</span>
             </h1>
             <div className="apl2-headline-rule"></div>
             <p className="apl2-desc">
@@ -104,7 +115,7 @@ export default function Apple() {
             <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate — no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

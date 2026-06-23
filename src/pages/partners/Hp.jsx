@@ -1,5 +1,7 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../../components/SEO';
+import { getSEOData } from '../../config/seoConfig';
 import UseCaseSlider from '../../components/UseCaseSlider';
 import { useAwardsSlider } from '../../hooks/useAwardsSlider';
 import './Hp.css';
@@ -63,8 +65,17 @@ const hpUseCases = [
 
 export default function Hp() {
   useAwardsSlider();
+  const seoData = getSEOData('partnerHp');
   return (
     <div className="hp-page hp-v2-page">
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        keywords={seoData.keywords}
+        ogImage={seoData.ogImage}
+        canonical={seoData.canonical}
+        structuredData={seoData.structuredData}
+      />
 
       {/* -- HP Premium Hero -- */}
       <section className="hp2-hero">
@@ -78,16 +89,16 @@ export default function Hp() {
           <div className="hp2-left" data-aos="fade-right" data-aos-duration="900">
 
             <h1 className="hp2-headline">
-              HP Laptops, Workstations<br />
-              &amp; Servers for<br />
-              <span className="hp2-headline-accent">Modern Enterprises</span>
+              Leading HP Infrastructure<br />
+              &amp; Enterprise Solutions<br />
+              <span className="hp2-headline-accent">Partner</span>
             </h1>
             <div className="hp2-headline-rule"></div>
 
             <p className="hp2-desc">
               Secure, high-performance, and scalable HP IT infrastructure
               designed for enterprises, SMBs, healthcare, education,
-              banking, and government � delivered by{' '}
+              banking, and government - delivered by{' '}
               <a href="/contact-us" className="hp2-desc-link">Trace Network &amp; Engineering.</a>
             </p>
 
@@ -96,7 +107,7 @@ export default function Hp() {
                 <div className="hp2-feat-icon"><i className="fas fa-shield-alt"></i></div>
                 <div className="hp2-feat-body">
                   <strong>Secure &amp; Reliable</strong>
-                  <span>HP Wolf Security � hardware-level protection.</span>
+                  <span>HP Wolf Security - hardware-level protection.</span>
                 </div>
               </div>
               <div className="hp2-feat">
@@ -151,7 +162,7 @@ export default function Hp() {
 
           </div>
 
-          {/* -- RIGHT � Product Showcase -- */}
+          {/* -- RIGHT - Product Showcase -- */}
           <div className="hp2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
 
             <div className="hp2-product-glow" aria-hidden="true"></div>
@@ -195,7 +206,7 @@ export default function Hp() {
       
       {/* Use Cases - Professional Slider */}
 
-      {/* Career CTA � above Use Cases */}
+      {/* Career CTA - above Use Cases */}
       <section className="career-cta-section partner-cta-upgraded" data-aos="fade-up" data-aos-duration="900">
         <div className="career-cta-container">
           <div className="partner-cta-eyebrow"><i className="fas fa-desktop"></i><span>FREE IT CONSULTATION</span></div>
@@ -204,10 +215,10 @@ export default function Hp() {
           <div className="partner-cta-points">
             <div className="partner-cta-point"><i className="fas fa-search"></i><span>Top three performance risks in your current hardware</span></div>
             <div className="partner-cta-point"><i className="fas fa-bolt"></i><span>Quick wins that boost productivity without full replacement</span></div>
-            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate � no obligations</span></div>
+            <div className="partner-cta-point"><i className="fas fa-calendar-alt"></i><span>An exact timeline & cost estimate - no obligations</span></div>
           </div>
           <div className="partner-cta-actions">
-            <a href="tel:7032224513" className="partner-cta-primary"><i className="fas fa-phone-alt"></i> Book Your Free Strategy Call</a>
+            <a href="https://wa.me/919000314411" target="_blank" rel="noopener noreferrer" className="partner-cta-primary"><i className="fab fa-whatsapp"></i> Book Your Free Strategy Call</a>
             <a href="/contact-us" className="partner-cta-secondary"><i className="fas fa-envelope"></i> Send Us a Message</a>
           </div>
         </div>

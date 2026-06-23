@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import './partners/Sophos.css';
 
 import SEO from '../components/SEO';
 import { getSEOData } from '../config/seoConfig';
@@ -7,6 +7,20 @@ export default function AwardsAccreditations() {
   const seoData = getSEOData('awardsAccreditations');
 
   const [activeTab, setActiveTab] = useState("aruba");
+
+  const certNames = [
+    'Sophos Certified Architect', 'Sophos Certified Engineer', 'Sophos Certified Technician',
+    'Sophos XG Firewall Certified', 'Sophos Intercept X Certified', 'Sophos Central Admin Certified',
+    'Sophos MDR Certified', 'Sophos EDR Specialist', 'Sophos ZTNA Certified',
+    'Sophos Endpoint Protection Certified', 'Sophos Email Security Certified', 'Sophos Web Gateway Certified',
+    'Sophos Cloud Optix Certified', 'Sophos SD-WAN Certified', 'Sophos Server Protection Certified',
+    'Sophos Mobile Certified', 'Sophos SASE Solutions Certified', 'Sophos Mobile Engineer',
+    'Sophos Mobile Architect', 'Sophos Wireless Certified', 'Sophos Phish Threat Certified',
+    'Sophos Data Loss Prevention Certified', 'Sophos Network Detection & Response', 'Sophos XDR Specialist',
+    'Sophos Managed Threat Response', 'Sophos Firewall Manager Certified', 'Sophos Partner Sales Certified',
+    'Sophos Rapid Response Certified', 'Sophos Synchronized Security Certified', 'Sophos Encryption Certified',
+    'Sophos Sandstorm Certified', 'Sophos UTM Certified', 'Sophos AP Certified', 'Sophos Switch Certified',
+  ];
 
   return (
     <>
@@ -70,37 +84,62 @@ export default function AwardsAccreditations() {
                 <img src="/assets/images/HPE-Associate-Campus-access.png" alt="HPE Associate Campus Access" title="HPE Associate Campus Access" />
                 <img src="/assets/images/HPE-Associate-Network-Security.png" alt="HPE Associate Network Security" title="HPE Associate Network Security" />
                 <img src="/assets/images/HPE-product-specialist-central.png" alt="HPE Product Specialist Central" title="HPE Product Specialist Central" />
-                <img src="/assets/images/HPE-product-specialist-cx-10000-switch.png" alt="HPE Product Specialist CX 10000 Switch" title="HPE Product Specialist CX 10000 Switch" />
+                <img src="/assets/images/product-1.png" alt="HPE Product Specialist CX 10000 Switch" title="HPE Product Specialist CX 10000 Switch" />
               </div>
               <h3 className="cert-sub-title-dark">Aruba Awards</h3>
               <ul className="award-list-dark">
-                <li>Aruba Best Partner 2024</li>
-                <li>Aruba Excellence Award 2023</li>
+                <li>Aruba Best Partner <span className="award-year">2024</span></li>
+                <li>Aruba Excellence Award <span className="award-year">2023</span></li>
               </ul>
             </div>
 
             {/* Sophos Tab */}
             <div className={`cert-tab-pane-dark${activeTab === "sophos" ? " active" : ""}`} id="sophos">
-              <h3 className="cert-sub-title-dark">Sophos Certifications</h3>
-              <ul className="cert-list-dark">
-                <li>Sophos Endpoint Engineer</li>
-                <li>Sophos Endpoint Technician</li>
-                <li>Sophos Endpoint Architecture</li>
-                <li>Sophos Firewall Architecture</li>
-                <li>Sophos Firewall Engineer</li>
-                <li>Sophos Firewall Technician</li>
-              </ul>
+              <div className="sophos-tab-layout">
 
-              <h3 className="cert-sub-title-dark">Sophos Awards</h3>
-              <ul className="award-list-dark">
-                <li>Sophos Partner of the Year - India &amp; SAARC</li>
-                <li>Top Performer Of The Region (2020)</li>
-                <li>Best Performing Partner (2018)</li>
-                <li>Best Solution Partner (2023, 2018, 2017, 2016)</li>
-                <li>Best Platinum Partner (2020)</li>
-                <li>Best Top Performing Partner (2019)</li>
-                <li>Highest Achiever Business Partner (2015)</li>
-              </ul>
+                {/* Left: certifications + awards */}
+                <div className="sophos-tab-left">
+
+                  <h3 className="cert-sub-title-dark">Sophos Certifications</h3>
+                  <div className="sophos-cert-chips">
+                    <span className="sophos-chip">Endpoint Engineer</span>
+                    <span className="sophos-chip">Endpoint Technician</span>
+                    <span className="sophos-chip">Endpoint Architecture</span>
+                    <span className="sophos-chip">Firewall Architecture</span>
+                    <span className="sophos-chip">Firewall Engineer</span>
+                    <span className="sophos-chip">Firewall Technician</span>
+                  </div>
+
+                  <h3 className="cert-sub-title-dark" style={{marginTop: '32px'}}>Sophos Awards</h3>
+                  <ul className="award-list-dark">
+                    <li>Sophos Partner of the Year – India &amp; SAARC</li>
+                    <li>Top Performer Of The Region <span className="award-year">2020</span></li>
+                    <li>Best Performing Partner <span className="award-year">2018</span></li>
+                    <li>Best Solution Partner <span className="award-year">2023 · 2018 · 2017 · 2016</span></li>
+                    <li>Best Platinum Partner <span className="award-year">2020</span></li>
+                    <li>Best Top Performing Partner <span className="award-year">2019</span></li>
+                    <li>Highest Achiever Business Partner <span className="award-year">2015</span></li>
+                  </ul>
+                </div>
+
+                {/* Right: Sophos 2025 award image */}
+                <div className="sophos-tab-right">
+                  <div className="sophos-award-img-wrap">
+                    <div className="sophos-award-badge-top"><i className="fas fa-star"></i> 2025 Award</div>
+                    <img
+                      src="/assets/images/award/sophos 2025.jpeg"
+                      alt="Sophos Award 2025"
+                      title="Sophos Award 2025"
+                      className="sophos-award-img"
+                    />
+                    <div className="sophos-award-caption">
+                      <span className="sophos-caption-title">Sophos Partner of the Year</span>
+                      <span className="sophos-caption-sub">India &amp; SAARC · 2025</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
             {/* Other Certifications Tab */}
@@ -111,11 +150,53 @@ export default function AwardsAccreditations() {
                 <img src="/assets/images/1.-CEH-Certified-Ethical-hacker.png" alt="CEH Certified Ethical Hacker" title="CEH Certified Ethical Hacker" />
                 <img src="/assets/images/ccna_600.png" alt="CCNA" title="CCNA" />
                 <img src="/assets/images/Vinay Kumar Certificate_page-0001.jpg" alt="Seceon Professional" title="Seceon Professional" />
+                <img src="/assets/manage-engine.png" alt="ManageEngine" title="ManageEngine" />
               </div>
             </div>
 
           </div>
         </div>
+
+      {/* Team Certifications Carousel — visible only on Sophos tab */}
+      {activeTab === "sophos" && (
+      <section className="certifications-carousel-premium">
+        <div className="container">
+          <div className="cert-carousel-header">
+            <div className="cert-badge-icon">
+              <i className="fas fa-graduation-cap"></i>
+            </div>
+            <h2>Team Certifications</h2>
+            <p>Recognized expertise across all <span className="sophos-highlight">Sophos</span> technologies</p>
+          </div>
+
+          <div className="cert-marquee-outer">
+            <div className="cert-marquee-track">
+              {[...Array(34)].map((_, i) => (
+                <div className="cert-marquee-item" key={`a-${i}`}>
+                  <img
+                    src={`/assets/s${i + 1}.png`}
+                    alt={certNames[i] || `Sophos Certification ${i + 1}`}
+                    title={certNames[i] || `Sophos Certification ${i + 1}`}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+              {[...Array(34)].map((_, i) => (
+                <div className="cert-marquee-item" key={`b-${i}`}>
+                  <img
+                    src={`/assets/s${i + 1}.png`}
+                    alt={certNames[i] || `Sophos Certification ${i + 1}`}
+                    title={certNames[i] || `Sophos Certification ${i + 1}`}
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      )}
+
       {/* Career CTA Section */}
       <section className="career-cta-section">
         <div className="career-cta-container">
@@ -129,7 +210,7 @@ export default function AwardsAccreditations() {
           </p>
 
           <div className="about-two__btn-box">
-            <a href="tel:7032224513" className="btn-get-started">
+            <a href="https://wame.pro/tracenetwork" target="_blank" rel="noopener noreferrer" className="btn-get-started">
               <span className="btn-text">Book Your Free Strategy Call </span>
               <span className="btn-arrow"></span>
             </a>

@@ -96,8 +96,8 @@ export default function AdminBlogs() {
                             <i className="fas fa-blog"></i>
                         </div>
                         <div className="page-title-section">
-                            <h1 className="page-title">Manage Blogs</h1>
-                            <p className="page-subtitle">
+                            <h1 className="page-title" style={{ color: '#1a202c' }}>Manage Blogs</h1>
+                            <p className="page-subtitle" style={{ color: '#718096' }}>
                                 {blogs.length} {blogs.length === 1 ? 'blog post' : 'blog posts'} total
                             </p>
                         </div>
